@@ -536,4 +536,29 @@ background-image: url("hero.jpg");
   width: 100%;
   max-width: 100%;
 }
+/* Floating "Call Now" button (mobile focus) */
+.call-now-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 200;
+  display: none; /* hidden by default, shown on mobile */
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  background: #ff6b2c;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Show it only on mobile screens */
+@media (max-width: 768px) {
+  .call-now-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
