@@ -160,48 +160,65 @@
         </p>
 
         <div class="contact-layout">
-          <form class="contact-form">
-            <div class="form-row">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name">
-            </div>
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com">
-            </div>
-            <div class="form-row">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" placeholder="+1 (786) 935-0059">
-            </div>
-            <div class="form-row">
-              <label for="date">Event date</label>
-              <input id="date" name="date" type="date">
-            </div>
-            <div class="form-row">
-              <label for="location">Location (city, venue)</label>
-              <input id="location" name="location" type="text" placeholder="City, venue or area">
-            </div>
-            <div class="form-row">
-              <label for="type">Type of event</label>
-              <select id="type" name="type">
-                <option value="">Select</option>
-                <option value="bachelor">Bachelor party</option>
-                <option value="golf">Golf event</option>
-                <option value="private">Private party</option>
-                <option value="corporate">Corporate event</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label for="guests">Number of guests (approx)</label>
-              <input id="guests" name="guests" type="number" min="1" placeholder="50">
-            </div>
-            <div class="form-row">
-              <label for="message">What are you looking for</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tell us about your event, timing and what you would like us to cook."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary full-width">Send Request</button>
-          </form>
+          <form
+  class="contact-form"
+  action="https://formspree.io/f/xkgyqnjp"
+  method="POST"
+>
+  <div class="form-row">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" placeholder="Your name" required>
+  </div>
+
+  <div class="form-row">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" placeholder="you@example.com" required>
+  </div>
+
+  <div class="form-row">
+    <label for="phone">Phone</label>
+    <input id="phone" name="phone" type="tel" placeholder="+1 (786) 935-0059">
+  </div>
+
+  <div class="form-row">
+    <label for="date">Event date</label>
+    <input id="date" name="date" type="date">
+  </div>
+
+  <div class="form-row">
+    <label for="location">Location (city, venue)</label>
+    <input id="location" name="location" type="text" placeholder="City, venue or area">
+  </div>
+
+  <div class="form-row">
+    <label for="type">Type of event</label>
+    <select id="type" name="type">
+      <option value="">Select</option>
+      <option value="bachelor">Bachelor party</option>
+      <option value="golf">Golf event</option>
+      <option value="private">Private party</option>
+      <option value="corporate">Corporate event</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="guests">Number of guests (approx)</label>
+    <input id="guests" name="guests" type="number" min="1" placeholder="50">
+  </div>
+
+  <div class="form-row">
+    <label for="message">What are you looking for</label>
+    <textarea id="message" name="message" rows="4" placeholder="Tell us about your event, timing and what you would like us to cook."></textarea>
+  </div>
+
+  <!-- optional extras for Formspree -->
+  <input type="hidden" name="_subject" value="New booking request from Flambé Grill website">
+  <input type="hidden" name="_redirect" value="https://flambegrill.github.io/flambe-grill-site/#contact">
+
+  <button type="submit" class="btn btn-primary full-width">Send Request</button>
+</form>
+
 
           <div class="contact-info">
             <h3>Contact Details</h3>
