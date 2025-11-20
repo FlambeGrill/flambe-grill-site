@@ -562,3 +562,29 @@ background-image: url("hero.jpg");
   }
 }
 
+/* Floating "Text Us" (WhatsApp) button */
+.text-us-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 70px; /* sits just above Call Now */
+  z-index: 200;
+  display: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: #25d366; /* WhatsApp green */
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Show both buttons only on mobile */
+@media (max-width: 768px) {
+  .call-now-btn,
+  .text-us-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
