@@ -567,13 +567,13 @@ background-image: url("hero.jpg");
 .whatsapp-btn {
   position: fixed;
   bottom: 16px;
-  right: 140px; /* Moves it left so it's aligned with Call Now */
+  right: 140px;
   z-index: 200;
   display: none;
   width: 56px;
   height: 56px;
   border-radius: 999px;
-  background: #ff6b2c;
+  background: #25D366; /* Official WhatsApp green */
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   align-items: center;
   justify-content: center;
