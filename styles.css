@@ -563,17 +563,17 @@ background-image: url("hero.jpg");
 }
 
 /* Floating "Text Us" (WhatsApp) button */
-/* WhatsApp Button — next to Call Now */
+/* WhatsApp Button — same size as Call Now */
 .whatsapp-btn {
   position: fixed;
-  right: 86px; /* moves left of Call Now */
+  right: 92px; /* positions left of Call Now */
   bottom: 16px;
   z-index: 200;
   display: none;
-  width: 56px;
+  width: 56px;      /* same size as Call Now button height */
   height: 56px;
   border-radius: 999px;
-  background: #ff6b2c; /* orange */
+  background: #ff6b2c; /* same orange */
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   align-items: center;
   justify-content: center;
@@ -581,12 +581,12 @@ background-image: url("hero.jpg");
 }
 
 .whatsapp-icon {
-  width: 30px;
-  height: 30px;
+  width: 24px;   /* smaller icon */
+  height: 24px;
   fill: white;
 }
 
-/* Show both buttons side-by-side on mobile */
+/* show both buttons on mobile only */
 @media (max-width: 768px) {
   .call-now-btn,
   .whatsapp-btn {
