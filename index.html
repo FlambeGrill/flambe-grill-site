@@ -234,15 +234,36 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+ <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Flambé Grill. All rights reserved.</p>
-      <p>Live Fire Catering in South Florida.</p>
+      <p>Live Fire Catering in South Florida — +1 (786) 935-0059</p>
     </div>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
   </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal links like #contact, #events, #home
+    document.addEventListener('DOMContentLoaded', function () {
+      var anchors = document.querySelectorAll('a[href^="#"]');
+      anchors.forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var href = this.getAttribute('href');
+          if (!href || href === '#') return;
+
+          var targetId = href.substring(1);
+          var target = document.getElementById(targetId);
+
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
 
