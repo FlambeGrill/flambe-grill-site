@@ -1395,3 +1395,45 @@ hero{
   color: #fff !important;
   text-shadow: 0 4px 20px rgba(0,0,0,.6);
 }
+
+.site-header .logo{
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: 0 !important;
+}
+
+/* Fire gradient text */
+.site-header .logo-main,
+.site-header .logo-accent{
+  background: linear-gradient(
+    90deg,
+    #ffd36b 0%,
+    #ff9a2f 20%,
+    #ff4b2b 45%,
+    #ff2a00 65%,
+    #ffd36b 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.45),
+    0 0 18px rgba(255,90,0,.35);
+
+  animation: flameMove 3s linear infinite;
+}
+
+/* Slight glow difference for Grill */
+.site-header .logo-accent{
+  text-shadow:
+    0 2px 8px rgba(0,0,0,.45),
+    0 0 22px rgba(255,120,0,.4);
+}
+
+/* Fire movement */
+@keyframes flameMove{
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 250% 50%; }
+}
