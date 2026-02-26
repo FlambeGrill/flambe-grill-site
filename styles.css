@@ -1310,3 +1310,34 @@ hero{
 @media (max-width: 768px){
   .hero{ padding-top: 110px; }
 }
+
+.hero{
+  position: relative;
+  height: 78vh;
+  min-height: 560px;
+  max-height: 820px;
+  overflow: hidden;
+  padding-top: 0; /* remove earlier padding if exists */
+}
+
+/* Push content lower inside hero */
+.hero-content{
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 100%;
+  padding-top: 120px;   /* MAIN adjustment */
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px){
+  .hero-content{
+    padding-top: 140px;
+  }
+}
