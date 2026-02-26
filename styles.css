@@ -1276,3 +1276,37 @@ hero{
   z-index: 2;
   padding-top: 90px; /* κρατάει χώρο από το header */
 }
+
+/* Give header a readable background over video */
+.site-header{
+  position: fixed;            /* αν ήδη είναι fixed, δεν πειράζει */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.55) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Make sure header text stays readable */
+.site-header .nav a:not(.nav-cta),
+.site-header .logo,
+.site-header .logo-main,
+.site-header .logo-accent{
+  color: #fff !important;
+}
+
+/* Keep Book Us orange */
+.site-header .nav-cta{
+  background: #ff4b2b !important;
+  color: #fff !important;
+}
+
+/* Push hero content down so it doesn't collide with the fixed header */
+.hero{
+  padding-top: 90px;          /* adjust if your header is taller/shorter */
+}
+@media (max-width: 768px){
+  .hero{ padding-top: 110px; }
+}
