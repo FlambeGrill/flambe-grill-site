@@ -1108,3 +1108,45 @@ h1, h2, h3, .logo, .logo-main, .logo-accent, nav a, .nav a {
 .site-header .nav a:not(.nav-cta):hover {
   color: #ff4b2b !important;
 }
+.site-header .logo{
+  font-weight: 900;
+  letter-spacing: 0 !important;
+  line-height: 1;
+}
+
+/* Fire gradient text */
+.site-header .logo-main,
+.site-header .logo-accent{
+  background: linear-gradient(
+    90deg,
+    #ffd36b 0%,
+    #ff9a2f 20%,
+    #ff4b2b 45%,
+    #ff2a00 65%,
+    #ffd36b 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+
+  /* Make it pop on dark hero */
+  text-shadow:
+    0 2px 10px rgba(0,0,0,.45),
+    0 0 18px rgba(255,80,0,.25);
+
+  animation: fireFlow 3.2s linear infinite;
+}
+
+/* Slightly different glow for Grill so it reads well */
+.site-header .logo-accent{
+  text-shadow:
+    0 2px 10px rgba(0,0,0,.45),
+    0 0 16px rgba(255,120,0,.20);
+}
+
+/* Fire movement */
+@keyframes fireFlow{
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 220% 50%; }
+}
