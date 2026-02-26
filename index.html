@@ -3,37 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>Flambé Grill - Live Fire Catering in South Florida</title>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6VYGGXVWS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-R6VYGGXVWS');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6VYGGXVWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R6VYGGXVWS');
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Flambé Grill offers live fire catering, tomahawk steaks, gyro on the spit, whole lamb and whole pig for private events in South Florida.">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Quick hero image fix (uses an existing photo so you have a hero now) -->
+  <style>
+    .hero{
+      background-image: url('gallery2.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+  </style>
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo">
         <span class="logo-main">Flambé</span><span class="logo-accent">Grill</span>
       </div>
-<div class="social-icons">
-  
-   <nav class="nav">
-  <a href="#home">Home</a>
-  <a href="#catering">Catering</a>
-  <a href="#menu">Menu</a>
-  <a href="#events">Events</a>
-  <a href="#about">About</a>
-  <a href="#contact" class="nav-cta">Book Us</a>
-</nav>
 
-
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#catering">Catering</a>
+        <a href="#menu">Menu</a>
+        <a href="#events">Events</a>
+        <a href="#about">About</a>
+        <a href="#quote" class="nav-cta">Book Us</a>
+      </nav>
     </div>
   </header>
 
@@ -42,53 +51,67 @@
     <section id="home" class="hero">
       <div class="overlay"></div>
       <div class="container hero-content">
-    <h1>Live Fire Catering That Turns Any Event Into an Experience</h1>
+        <h1>Live Fire Catering That Turns Any Event Into an Experience</h1>
 
-<p>
-  Authentic Greek Gyro on the Spit • Fresh Carved Meats • Live Fire Cooking<br>
-  Perfect for birthdays, parties, corporate events, and private gatherings.
-</p>
+        <p>
+          Authentic Greek Gyro on the Spit • Fresh Carved Meats • Live Fire Cooking<br>
+          Perfect for birthdays, parties, corporate events, and private gatherings.
+        </p>
 
-<p><strong>Premium Live-Fire Catering for Every Budget.</strong></p>
+        <p><strong>Premium live-fire catering for every budget.</strong></p>
 
-<div class="hero-buttons">
-  <a class="btn primary" href="#quote">GET A FAST QUOTE</a>
-  <a class="btn secondary" href="https://wa.me/17869350059" target="_blank" rel="noopener">MESSAGE US ON WHATSAPP</a>
-</div>
-   <section class="section trust">
-  <h2>Catering Made Simple. Guests Love It.</h2>
-  <p>
-    We bring everything needed and cook fresh on-site.<br>
-    Your guests enjoy incredible food and live fire cooking.
-  </p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#quote">GET A FAST QUOTE</a>
+          <a class="btn secondary" href="https://wa.me/17869350059" target="_blank" rel="noopener">MESSAGE US ON WHATSAPP</a>
+        </div>
+      </div>
+    </section>
 
-  <ul class="bullets">
-    <li>Birthday parties</li>
-    <li>Backyard events</li>
-    <li>Beach parties</li>
-    <li>Corporate events</li>
-    <li>Family gatherings</li>
-    <li>Private celebrations</li>
-  </ul>
-<section class="section gyro">
-  <h2>Our Signature Live Gyro Experience</h2>
-  <p>
-    Real stacked meats rotating slowly on the spit.<br>
-    Carved fresh and served hot to your guests.
-  </p>
-  <p><strong>Fast service. Incredible flavor. Memorable experience.</strong></p>
-<section class="section pricing">
-  <h2>Premium Live-Fire Catering for Every Budget.</h2>
-  <p>
-    Most events range between <strong>$25 to $45 per person</strong>
-    depending on group size and menu.
-  </p>
-  <p>Simple, transparent pricing with no surprises.</p>
+    <!-- Trust -->
+    <section class="section section-light trust">
+      <div class="container">
+        <h2>Catering Made Simple. Guests Love It.</h2>
+        <p class="section-intro">
+          We bring everything needed and cook fresh on-site.<br>
+          Your guests enjoy incredible food and live fire cooking.
+        </p>
 
-  <a class="btn primary" href="#quote">REQUEST YOUR QUOTE NOW</a>
-</section>
+        <ul class="bullets">
+          <li>Birthday parties</li>
+          <li>Backyard events</li>
+          <li>Beach parties</li>
+          <li>Corporate events</li>
+          <li>Family gatherings</li>
+          <li>Private celebrations</li>
+        </ul>
+      </div>
+    </section>
 
-    <!-- What we do / Catering -->
+    <!-- Gyro -->
+    <section class="section section-dark gyro">
+      <div class="container">
+        <h2>Our Signature Live Gyro Experience</h2>
+        <p class="section-intro">
+          Real stacked meats rotating slowly on the spit.<br>
+          Carved fresh and served hot to your guests.
+        </p>
+        <p><strong>Fast service. Incredible flavor. Memorable experience.</strong></p>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section section-light pricing">
+      <div class="container">
+        <h2>Premium Live-Fire Catering packages for Every Budget.</h2>
+        <p class="section-intro">
+          Most events range between <strong>$25 to $45 per person</strong> depending on group size and menu.
+        </p>
+        <p>Simple, transparent pricing with no surprises.</p>
+        <a class="btn primary" href="#quote">REQUEST YOUR QUOTE NOW</a>
+      </div>
+    </section>
+
+    <!-- Catering -->
     <section id="catering" class="section section-light">
       <div class="container">
         <h2>Live Fire Catering Services</h2>
@@ -96,12 +119,11 @@
           We cook everything fresh on site over charcoal and open fire. Perfect for bachelor parties,
           golf events, corporate groups and private celebrations.
         </p>
+
         <div class="cards">
           <article class="card">
             <h3>Tomahawk Experience</h3>
-            <p>
-              Premium tomahawk and other steak cuts grilled live at your event. A show and a feast in one.
-            </p>
+            <p>Premium tomahawk and other steak cuts grilled live at your event. A show and a feast in one.</p>
             <ul>
               <li>On site charcoal grills</li>
               <li>Thick cut tomahawks and premium beef</li>
@@ -111,9 +133,7 @@
 
           <article class="card">
             <h3>Greek Gyro Spit</h3>
-            <p>
-              Authentic Greek style gyro, mixed meats marinated with our signature rub, slowly cooked on the spit.
-            </p>
+            <p>Authentic Greek style gyro, mixed meats marinated with our signature rub, slowly cooked on the spit.</p>
             <ul>
               <li>Lamb, pork and chicken mix</li>
               <li>Served in pita or on plates</li>
@@ -123,9 +143,7 @@
 
           <article class="card">
             <h3>Full Fire Feast</h3>
-            <p>
-              Combine steaks, gyro, whole lamb or pig and custom sides for a full live fire experience tailored to your event.
-            </p>
+            <p>Combine steaks, gyro, whole lamb or pig and custom sides for a full live fire experience tailored to your event.</p>
             <ul>
               <li>Custom menu planning</li>
               <li>We bring all equipment</li>
@@ -137,8 +155,8 @@
         <div class="service-area">
           <h4>Service Area</h4>
           <p>
-            Starting in 2026, we will serve South Florida, including Miami, Fort Lauderdale, Hollywood,
-             Boca Raton, and the surrounding areas..
+            We serve South Florida, including Miami, Miami Beach, Fort Lauderdale, Hollywood, Boca Raton,
+            Delray Beach, Pompano Beach, West Palm Beach, Jupiter, and Palm Beach.
           </p>
         </div>
       </div>
@@ -152,13 +170,10 @@
           Live fire catering for private and corporate events. Choose your main experience and we build the menu around your event.
         </p>
 
-        <!-- Whole Animal Roast -->
         <div class="menu-block menu-block-large" style="background-image: url('gallery3.jpg');">
           <div class="menu-block-overlay">
             <h3>Whole Animal Roast</h3>
-            <p>
-              Lamb or pork slow roasted over charcoal and carved on site. A striking centerpiece for large events and outdoor celebrations.
-            </p>
+            <p>Lamb or pork slow roasted over charcoal and carved on site. A striking centerpiece for large events and outdoor celebrations.</p>
             <ul>
               <li>Whole lamb or whole pork on the spit</li>
               <li>Charcoal fire show and carving station</li>
@@ -167,13 +182,10 @@
           </div>
         </div>
 
-        <!-- Greek Gyro on the Spit -->
         <div class="menu-block menu-block-large" style="background-image: url('gallery2.jpg');">
           <div class="menu-block-overlay">
             <h3>Greek Gyro on the Spit</h3>
-            <p>
-              Authentic Greek style gyro with mixed meats, marinated and cooked slowly over fire, then hand carved for each guest.
-            </p>
+            <p>Authentic Greek style gyro with mixed meats, marinated and cooked slowly over fire, then hand carved for each guest.</p>
             <ul>
               <li>Lamb, pork and chicken mix with Greek herbs</li>
               <li>Served as plates or pita wraps</li>
@@ -182,13 +194,10 @@
           </div>
         </div>
 
-        <!-- Live Fire Steaks & BBQ -->
         <div class="menu-block menu-block-large" style="background-image: url('gallery1.jpg');">
           <div class="menu-block-overlay">
             <h3>Live Fire Steaks &amp; BBQ</h3>
-            <p>
-              Premium cuts cooked over real fire. From ribeye and picanha to wings and sausages, we turn any location into a live fire kitchen.
-            </p>
+            <p>Premium cuts cooked over real fire. From ribeye and picanha to wings and sausages, we turn any location into a live fire kitchen.</p>
             <ul>
               <li>Ribeye, picanha, sirloin and more</li>
               <li>Wings, ribs, sausages and grilled vegetables</li>
@@ -197,7 +206,6 @@
           </div>
         </div>
 
-        <!-- Sides & Extras -->
         <div class="menu-grid">
           <div class="menu-card">
             <h4>Sides</h4>
@@ -227,76 +235,73 @@
         </div>
 
         <p class="note-small menu-note">
-          Menus are customized to your event size, location and timing. No fixed prices here. Tell us about your event and we build the best live fire plan for you.
+          Menus are customized to your event size, location and timing. No fixed prices here.
+          Tell us about your event and we build the best live fire plan for you.
         </p>
       </div>
     </section>
 
     <!-- Events & Gallery -->
     <section id="events" class="section section-dark">
-  <div class="container">
-    <h2>Events &amp; Gallery</h2>
-    <p class="section-intro">
-      A small taste of what Flambé Grill looks like on location. Golf fields, backyards, rooftops,
-      private homes and more.
-    </p>
+      <div class="container">
+        <h2>Events &amp; Gallery</h2>
+        <p class="section-intro">
+          A small taste of what Flambé Grill looks like on location. Golf fields, backyards, rooftops,
+          private homes and more.
+        </p>
 
-    <!-- 1. IMAGE SLIDER -->
-    <div class="gallery-slider">
-      <button class="slider-btn prev" aria-label="Previous photo">&#10094;</button>
+        <div class="gallery-slider">
+          <button class="slider-btn prev" aria-label="Previous photo">&#10094;</button>
 
-      <div class="slider-track">
-        <div class="slide" style="background-image: url('gallery1.jpg');"></div>
-        <div class="slide" style="background-image: url('gallery2.jpg');"></div>
-        <div class="slide" style="background-image: url('gallery3.jpg');"></div>
-        <div class="slide" style="background-image: url('gallery4.jpg');"></div>
-        <div class="slide" style="background-image: url('gallery5.jpg');"></div>
-        <div class="slide" style="background-image: url('gallery6.jpg');"></div>
+          <div class="slider-track">
+            <div class="slide" style="background-image: url('gallery1.jpg');"></div>
+            <div class="slide" style="background-image: url('gallery2.jpg');"></div>
+            <div class="slide" style="background-image: url('gallery3.jpg');"></div>
+            <div class="slide" style="background-image: url('gallery4.jpg');"></div>
+            <div class="slide" style="background-image: url('gallery5.jpg');"></div>
+            <div class="slide" style="background-image: url('gallery6.jpg');"></div>
+          </div>
+
+          <button class="slider-btn next" aria-label="Next photo">&#10095;</button>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <div class="gallery-photo" style="background-image: url('gallery1.jpg');"></div>
+            <h4>Bachelor Party Tomahawk Night</h4>
+            <p>Live tomahawk grilling on site for a bachelor group, late night service until the fire cooled down.</p>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-photo" style="background-image: url('gallery2.jpg');"></div>
+            <h4>Private Backyard Fire Feast</h4>
+            <p>Full gyro setup with whole pig custom menu with steaks, gyro and sides for a private family celebration.</p>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-photo" style="background-image: url('gallery3.jpg');"></div>
+            <h4>Beachside Birthday Celebration</h4>
+            <p>For this birthday event, we set up directly on the sand.</p>
+          </div>
+        </div>
+
+        <div class="social-buttons">
+          <h3>Follow Us</h3>
+          <p>See more photos, behind-the-scenes fire, and full event videos.</p>
+
+          <div class="social-btn-row">
+            <a href="https://www.instagram.com/flambegrill/" target="_blank" class="social-btn instagram-btn" rel="noopener">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+              Instagram
+            </a>
+
+            <a href="https://www.facebook.com/profile.php?id=61554979903834" target="_blank" class="social-btn facebook-btn" rel="noopener">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook">
+              Facebook
+            </a>
+          </div>
+        </div>
+
       </div>
-
-      <button class="slider-btn next" aria-label="Next photo">&#10095;</button>
-    </div>
-
-    <!-- 2. STATIC GALLERY CARDS -->
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <div class="gallery-photo" style="background-image: url('gallery1.jpg');"></div>
-        <h4>Bachelor Party Tomahawk Night</h4>
-        <p>Live tomahawk grilling on site for a bachelor group, late night service until the fire cooled down.</p>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-photo" style="background-image: url('gallery2.jpg');"></div>
-        <h4>Private Backyard Fire Feast</h4>
-        <p>Full gyro setup with Wlole pig custom menu with steaks, gyro and sides for a private family celebration.</p>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-photo" style="background-image: url('gallery3.jpg');"></div>
-        <h4>Beachside Birthday Celebration</h4>
-        <p>For this birthday event, we set up directly on the sand. Nowhere and everywhere at the same time.</p>
-      </div>
-   </div>
-<!-- Social Buttons Section -->
-<div class="social-buttons">
-  <h3>Follow Us</h3>
-  <p>See more photos, behind-the-scenes fire, and full event videos.</p>
-
-  <div class="social-btn-row">
-    <a href="https://www.instagram.com/flambegrill/" target="_blank" class="social-btn instagram-btn">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-      Instagram
-    </a>
-
-    <a href="https://www.facebook.com/profile.php?id=61554979903834" target="_blank" class="social-btn facebook-btn">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook">
-      Facebook
-    </a>
-  </div>
-</div>
-
-
-    </div>
-
-    
+    </section>
 
     <!-- About -->
     <section id="about" class="section section-light">
@@ -304,132 +309,134 @@
         <div class="about-text">
           <h2>About Flambé Grill</h2>
           <p>
-           Flambé Grill is built on a love for real fire, charcoal and the excitement that comes from cooking in front of your guests. We’re bringing that experience to South          Florida with a full live-fire catering service  .
+            Flambé Grill is built on a love for real fire, charcoal and the excitement that comes from cooking in front of your guests.
+            We’re bringing that experience to South Florida with a full live-fire catering service.
           </p>
           <p>
-            We handle the fire, timing and cooking. You enjoy the show, the aromas and plates that go
-            straight from the grill to your guests.
+            We handle the fire, timing and cooking. You enjoy the show, the aromas and plates that go straight from the grill to your guests.
           </p>
-              What We Do
+
+          <h3>What We Do</h3>
           <ul class="about-list">
-           <p>
             <li>Live fire catering for private and corporate events</li>
             <li>Whole lamb or pig on the spit, steaks, seafood and Greek gyro</li>
             <li>High quality meat and fresh ingredients</li>
             <li>We bring equipment, grills and spits to you</li>
-            <li>Ideal for birthdays, bachelor parties, anniversaries, beach parties, festivals and more
-
-Your guests enjoy real flames, real flavor and food they won’t forget. South Florida, we’re ready to bring the fire to you.</li>
+            <li>Ideal for birthdays, bachelor parties, anniversaries, beach parties, festivals and more</li>
           </ul>
+
+          <p><strong>South Florida, we’re ready to bring the fire to you.</strong></p>
         </div>
-        <div class="about-photo" style="background-image: url('about.jpg'); background-size: cover; background-position: center;">
-        </div>
+
+        <div class="about-photo" style="background-image: url('about.jpg'); background-size: cover; background-position: center;"></div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section section-dark">
+    <!-- Contact / Quote -->
+    <section id="quote" class="section section-dark">
       <div class="container">
-        <h2>Book Flambé Grill</h2>
+        <h2>Get Your Custom Quote</h2>
         <p class="section-intro">
-          Tell us a bit about your event and we will get back to you within 24 hours with menu ideas and a quote.
+          Check availability and receive your quote within 24 hours.<br>
+          Weekend dates fill quickly. Secure your event now.
+        </p>
+
+        <p style="margin-top:15px;">
+          Prefer faster response?
+          <a href="https://wa.me/17869350059" target="_blank" rel="noopener" style="color:#25D366;font-weight:bold;">
+            Message us on WhatsApp
+          </a>
         </p>
 
         <div class="contact-layout">
-          <form
-  class="contact-form"
-  action="https://formspree.io/f/xkgyqnjp"
-  method="POST"
->
-  <div class="form-row">
-    <label for="name">Name</label>
-    <input id="name" name="name" type="text" placeholder="Your name" required>
-  </div>
+          <form class="contact-form" action="https://formspree.io/f/xkgyqnjp" method="POST">
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
 
-  <div class="form-row">
-    <label for="email">Email</label>
-    <input id="email" name="email" type="email" placeholder="you@example.com" required>
-  </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
 
-  <div class="form-row">
-    <label for="phone">Phone</label>
-    <input id="phone" name="phone" type="tel" placeholder="+1 (786) 935-0059">
-  </div>
+            <div class="form-row">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="+1 (786) 935-0059">
+            </div>
 
-  <div class="form-row">
-    <label for="date">Event date</label>
-    <input id="date" name="date" type="date">
-  </div>
+            <div class="form-row">
+              <label for="date">Event date</label>
+              <input id="date" name="date" type="date">
+            </div>
 
-  <div class="form-row">
-    <label for="location">Location (city, venue)</label>
-    <input id="location" name="location" type="text" placeholder="City, venue or area">
-  </div>
+            <div class="form-row">
+              <label for="location">Location (city, venue)</label>
+              <input id="location" name="location" type="text" placeholder="City, venue or area">
+            </div>
 
-  <div class="form-row">
-    <label for="type">Type of event</label>
-    <select id="type" name="type">
-      <option value="">Select</option>
-      <option value="bachelor">Bachelor party</option>
-      <option value="golf">Golf event</option>
-      <option value="private">Private party</option>
-      <option value="corporate">Corporate event</option>
-      <option value="other">Other</option>
-    </select>
-  </div>
+            <div class="form-row">
+              <label for="type">Type of event</label>
+              <select id="type" name="type">
+                <option value="">Select</option>
+                <option value="bachelor">Bachelor party</option>
+                <option value="golf">Golf event</option>
+                <option value="private">Private party</option>
+                <option value="corporate">Corporate event</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
 
-  <div class="form-row">
-    <label for="guests">Number of guests (approx)</label>
-    <input id="guests" name="guests" type="number" min="1" placeholder="50">
-  </div>
+            <div class="form-row">
+              <label for="guests">Number of guests (approx)</label>
+              <input id="guests" name="guests" type="number" min="1" placeholder="50">
+            </div>
 
-  <div class="form-row">
-    <label for="message">What are you looking for</label>
-    <textarea id="message" name="message" rows="4" placeholder="Tell us about your event, timing and what you would like us to cook."></textarea>
-  </div>
+            <div class="form-row">
+              <label for="message">What are you looking for</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about your event, timing and what you would like us to cook."></textarea>
+            </div>
 
-  <!-- optional extras for Formspree -->
-  <input type="hidden" name="_subject" value="New booking request from Flambé Grill website">
-  <input type="hidden" name="_redirect" value="https://flambegrill.github.io/flambe-grill-site/#contact">
+            <input type="hidden" name="_subject" value="New booking request from Flambé Grill website">
+            <input type="hidden" name="_redirect" value="https://flambegrill.com/#quote">
 
-  <button type="submit" class="btn btn-primary full-width">Send Request</button>
-</form>
-
+            <button type="submit" class="btn btn-primary full-width">Send Request</button>
+          </form>
 
           <div class="contact-info">
             <h3>Contact Details</h3>
-            <p>
-              You can also reach us directly.
-            </p>
-           
-  <p>
-  <strong>Email:</strong>
-  <a href="mailto:info@flambegrill.com">info@flambegrill.com</a>
-</p>
+            <p>You can also reach us directly.</p>
 
-<p>
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@flambegrill.com&su=Booking%20Request%20-%20Flambe%20Grill"
-     target="_blank" rel="noopener">
-    Send via Gmail
-  </a>
-</p>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:info@flambegrill.com">info@flambegrill.com</a>
+            </p>
+
+            <p>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@flambegrill.com&su=Booking%20Request%20-%20Flambe%20Grill"
+                 target="_blank" rel="noopener">
+                Send via Gmail
+              </a>
+            </p>
+
+            <p>
               <strong>Phone:</strong>
               <a href="tel:+17869350059">+1 (786) 935-0059</a>
             </p>
-            <h2>Serving All South Florida</h2>
 
-<p>
-Miami • Miami Beach • Fort Lauderdale • Hollywood • Boca Raton • Delray Beach •
-Pompano Beach • West Palm Beach • Jupiter • Palm Beach
-</p>
-            <p class="note-small">
-              To make this form send you emails, you will later connect it to a service like Formspree or Netlify Forms.
+            <h3>Serving All South Florida</h3>
+            <p>
+              Miami • Miami Beach • Fort Lauderdale • Hollywood • Boca Raton • Delray Beach •
+              Pompano Beach • West Palm Beach • Jupiter • Palm Beach
             </p>
           </div>
+
         </div>
       </div>
     </section>
+
   </main>
+
   <a href="tel:+17869350059" class="call-now-btn">Call Now</a>
 
   <a
@@ -492,15 +499,3 @@ Pompano Beach • West Palm Beach • Jupiter • Palm Beach
 
 </body>
 </html>
-
-
-       
-
-
-
-
-
-
-
-
-
