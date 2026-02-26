@@ -1070,3 +1070,21 @@ h1, h2, h3, .logo, .logo-main, .logo-accent, nav a, .nav a {
   border: 1px solid rgba(255,255,255,.55) !important;
   color: #fff !important;
 }
+/* Make all header text white */
+.site-header .logo,
+.site-header .logo-main,
+.site-header .logo-accent,
+.site-header .nav a:not(.nav-cta) {
+  color: #ffffff !important;
+}
+
+/* Keep Book Us orange */
+.site-header .nav-cta {
+  background: #ff4b2b !important;
+  color: #ffffff !important;
+}
+
+/* Optional: nice hover for normal links */
+.site-header .nav a:not(.nav-cta):hover {
+  color: #ff4b2b !important;
+}
