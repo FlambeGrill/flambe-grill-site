@@ -1341,3 +1341,57 @@ hero{
     padding-top: 140px;
   }
 }
+
+/* ===== HERO IMAGE (NO VIDEO) ===== */
+
+.hero{
+  position: relative;
+  height: 78vh;
+  min-height: 560px;
+  max-height: 820px;
+  overflow: hidden;
+
+  /* Βάλε εδώ τη φωτο σου */
+  background-image: url('hero.jpg'); /* ή gallery2.jpg */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .hero{
+    height: 65vh;
+    min-height: 500px;
+    max-height: 680px;
+    background-position: center 35%;
+  }
+}
+
+/* Overlay για να διαβάζεται πάντα */
+.hero .overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 1;
+}
+
+/* Text πάντα από πάνω */
+.hero .hero-content{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding-top: 70px; /* safe space από header */
+}
+
+.hero .hero-content h1,
+.hero .hero-content p{
+  color: #fff !important;
+  text-shadow: 0 4px 20px rgba(0,0,0,.6);
+}
