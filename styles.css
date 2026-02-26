@@ -993,3 +993,33 @@ body { background: #ffffff; color: #111; }
   padding: 10px 14px;
   border-radius: 999px;
 }
+/* === FIX HEADERS: remove spaced-out letters === */
+h1, h2, h3, .hero h1, .section h2 {
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+/* === FIX HERO VISIBILITY === */
+
+/* Make sure hero text is bright */
+.hero .hero-content,
+.hero .hero-content h1,
+.hero .hero-content p {
+  color: #fff !important;
+}
+
+/* If you have an overlay, reduce darkness */
+.hero .overlay {
+  background: rgba(0,0,0,.45) !important; /* was probably too strong */
+}
+
+/* Make buttons readable on hero */
+.hero .btn.primary, .hero .btn.btn-primary {
+  background: #ff4b2b !important;
+  border-color: #ff4b2b !important;
+  color: #fff !important;
+}
+.hero .btn.secondary {
+  background: rgba(255,255,255,.12) !important;
+  border: 1px solid rgba(255,255,255,.5) !important;
+  color: #fff !important;
+}
