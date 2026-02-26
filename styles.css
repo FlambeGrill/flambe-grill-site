@@ -938,3 +938,58 @@ background-image: url("hero.jpg");
     grid-template-columns: 1fr;
   }
 }
+/* === Flambé Bright Conversion Override (paste at END of styles.css) === */
+
+/* General background & text */
+body { background: #ffffff; color: #111; }
+.section { padding: 72px 0; }
+
+/* Convert most dark sections to light feel */
+.section-dark {
+  background: #ffffff !important;
+  color: #111 !important;
+}
+.section-dark .section-intro,
+.section-dark p,
+.section-dark li,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 { color: #111 !important; }
+
+/* Keep cards readable */
+.card, .menu-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+/* Make menu large blocks still pop but not dark */
+.menu-block-overlay {
+  background: rgba(0,0,0,.55) !important;
+}
+.menu-block-overlay h3,
+.menu-block-overlay p,
+.menu-block-overlay li { color: #fff !important; }
+
+/* Buttons: keep fire accent */
+.btn.primary, .btn.btn-primary {
+  background: #ff4b2b !important;
+  border-color: #ff4b2b !important;
+  color: #fff !important;
+}
+.btn.secondary {
+  background: rgba(255,255,255,.12) !important;
+  border: 1px solid rgba(255,255,255,.45) !important;
+  color: #fff !important;
+}
+
+/* Make section intro spacing cleaner */
+.section-intro { max-width: 780px; line-height: 1.5; }
+
+/* Nav CTA stands out */
+.nav-cta {
+  background: #ff4b2b !important;
+  color: #fff !important;
+  padding: 10px 14px;
+  border-radius: 999px;
+}
