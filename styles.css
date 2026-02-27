@@ -1582,3 +1582,10 @@ body::before{
   background-position: center;
   background-repeat: no-repeat;
 }
+/* FORCE HERO IMAGE */
+.hero{
+  background-image: url("hero.jpg?v=99") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
