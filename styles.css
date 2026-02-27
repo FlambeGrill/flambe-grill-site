@@ -1581,3 +1581,4 @@ body::before{
   background-position: center;
   background-repeat: no-repeat;
 }
+background-image: url('hero.jpg?v=3');
