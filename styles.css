@@ -1575,3 +1575,9 @@ body::before{
   color: #fff !important;
   text-shadow: 0 6px 25px rgba(0,0,0,.8);
 }
+.hero{
+  background-image: url('hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
