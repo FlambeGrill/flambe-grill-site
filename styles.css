@@ -97,15 +97,18 @@ a {
 
 .hero {
   position: relative;
-  height: 78vh;
-  min-height: 560px;
-  max-height: 820px;
-  overflow: hidden;
-  /* Using the absolute URL to ensure the image loads regardless of folder structure */
+  height: 80vh;
+  min-height: 600px;
+  
+  /* 1. Use the full URL */
   background-image: url('https://flambegrill.com/hero.jpg') !important;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  
+  /* 2. Set these to make sure it fills the screen correctly */
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  
+  /* 3. Important: Remove or comment out any line that says "background: #000" */
 }
 
 /* When you are ready, replace hero-placeholder.jpg with a real image in the same folder */
@@ -1574,6 +1577,7 @@ body::before{
   background-repeat: no-repeat;
 }
 background-image: url('hero.jpg?v=3');
+
 
 
 
