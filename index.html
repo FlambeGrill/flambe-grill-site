@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <title>Flambé Grill - Live Fire Catering in South Florida</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flambé Grill | Architectural Live-Fire Catering • South Florida</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R6VYGGXVWS"></script>
@@ -12,511 +13,1222 @@
     gtag('js', new Date());
     gtag('config', 'G-R6VYGGXVWS');
   </script>
+  <meta name="description" content="South Florida's premier live-fire catering experience. 100% natural charcoal beds, horizontal rotisserie spit mastery, whole lamb and pig roasts, and bespoke Mediterranean gastronomy." />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flambé Grill offers live fire catering, tomahawk steaks, gyro on the spit, whole lamb and whole pig for private events in South Florida.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://flambegrill.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Flambé Grill | Live-Fire Greek Catering in South Florida" />
+  <meta property="og:description" content="Charcoal-fired horizontal spits, whole roasts and Greek classics, cooked live at your event from Miami to Jupiter." />
+  <meta property="og:url" content="https://flambegrill.com/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23080605'/%3E%3Cpath d='M16 4c1 5 7 7 7 14a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 2 3 1 1-2 1-5 1-8z' fill='%23FF5E1A'/%3E%3C/svg%3E" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CateringService","name":"Flambé Grill Catering","url":"https://flambegrill.com/","servesCuisine":"Greek","telephone":"+17869350059","email":"info@flambegrill.com","sameAs":["https://www.instagram.com/flambegrill/","https://www.facebook.com/profile.php?id=61554979903834"],"areaServed":["Miami","Fort Lauderdale","Boca Raton","Palm Beach","Jupiter"]}</script>
 
-  <!-- Quick hero image fix (uses an existing photo so you have a hero now) -->
+  <!-- Google Fonts: Playfair Display & Inter -->
+  <link rel="stylesheet" href="assets/fonts.css">
+
+  <!-- Tailwind CSS (compiled, works offline) -->
+  <link rel="stylesheet" href="assets/style.css">
+
+  <!-- Lucide Icons -->
+  <script src="assets/vendor/lucide.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger & Lenis Smooth Scroll -->
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+
   <style>
-    .hero{
-      background-image: url('gallery2.jpg');
-      background-size: cover;
-      background-position: center;
-      position: relative;
+    :root { color-scheme: dark; }
+    body {
+      background-color: #080605;
+      color: #FFFDF9;
+      overflow-x: hidden;
     }
+    .vivid-media {
+      filter: saturate(1.32) contrast(1.10) brightness(1.04);
+    }
+    .text-fire-gradient {
+      background: linear-gradient(135deg, #FFE600 0%, #FF7A00 50%, #FF2A00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .bg-fire-gradient {
+      background: linear-gradient(135deg, #FF7A00 0%, #FF3B00 100%);
+    }
+    .bg-fire-gradient:hover {
+      background: linear-gradient(135deg, #FFB800 0%, #FF5E1A 100%);
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .btn-luxury {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-luxury::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.45), transparent);
+      transform: rotate(25deg);
+      transition: all 0.65s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .btn-luxury:hover::after {
+      left: 130%;
+    }
+    /* Scroll-Reactive Real Flame Background Container */
+    #flame-bg-wrapper {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    #bg-flame-video {
+      width: 100%;
+      height: 120%;
+      object-fit: cover;
+      mix-blend-mode: screen;
+      opacity: 0.42;
+      filter: saturate(1.6) contrast(1.25) hue-rotate(-8deg);
+      transform: translateY(0) scale(1.08);
+      will-change: transform, opacity, filter;
+    }
+  
+    /* ===== FLAMBÉ logo: flowing fire gradient + ember glow ===== */
+    @keyframes fireFlow { 0%{background-position:0% 50%} 100%{background-position:220% 50%} }
+    @keyframes emberGlow {
+      0%,100% { filter: drop-shadow(0 0 6px rgba(255,94,26,.55)) drop-shadow(0 0 16px rgba(255,60,0,.35)); }
+      50%     { filter: drop-shadow(0 0 10px rgba(255,184,0,.75)) drop-shadow(0 0 28px rgba(255,80,0,.55)); }
+    }
+    @keyframes flicker { 0%,100%{opacity:1} 46%{opacity:1} 48%{opacity:.82} 50%{opacity:1} 73%{opacity:.9} 75%{opacity:1} }
+    .logo-fire {
+      background: linear-gradient(90deg,#ffd36b 0%,#ff9a2f 20%,#ff4b2b 45%,#ff2a00 65%,#ffd36b 100%);
+      background-size: 220% 100%;
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+      animation: fireFlow 3.2s linear infinite, flicker 4s steps(1) infinite;
+    }
+    .logo-glow { animation: emberGlow 2.6s ease-in-out infinite; }
+    .logo-flame-icon { animation: emberGlow 2.6s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .logo-fire,.logo-glow,.logo-flame-icon{ animation:none } }
   </style>
 </head>
 
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo">
-        <span class="logo-main">Flambé</span><span class="logo-accent">Grill</span>
+<body class="antialiased selection:bg-ember selection:text-white relative">
+
+  <!-- ================================================================= -->
+  <!-- 0. SCROLL-REACTIVE REAL FLAME BACKGROUND ENGINE                   -->
+  <!-- ================================================================= -->
+  <div id="flame-bg-wrapper">
+    <!-- Layer A: Full-Screen Real Flame Video (mix-blend-screen) -->
+    <video 
+      id="bg-flame-video" 
+      autoplay 
+      loop 
+      muted 
+      playsinline 
+    ></video>
+
+    <!-- Layer B: Real-Time Scroll-Fanned Flame Tongues & Charcoal Embers -->
+    <canvas id="ember-canvas" class="absolute inset-0 w-full h-full mix-blend-screen opacity-90"></canvas>
+
+    <!-- Layer C: Subtle Vignette so typography stays razor-sharp -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,transparent_25%,rgba(8,6,5,0.78)_100%)]"></div>
+  </div>
+
+  <!-- Live Scroll-Flame Intensity HUD Indicator (Bottom Left) -->
+  <div class="fixed bottom-5 left-5 z-40 hidden sm:flex items-center gap-3 px-4 py-2 rounded-full bg-obsidian/80 backdrop-blur-xl border border-ember/40 text-[10px] uppercase tracking-widest text-ash pointer-events-none shadow-2xl">
+    <span id="flame-hud-dot" class="w-2.5 h-2.5 rounded-full bg-ember transition-transform duration-150"></span>
+    <span>Charcoal Bed Heat: <strong id="flame-temp-readout" class="text-flameGold">650°F</strong></span>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- 1. STICKY GLASSMORPHISM HEADER                                    -->
+  <!-- ================================================================= -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-6">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group shrink-0 lg:mr-8">
+        <div class="w-10 h-10 rounded-xl bg-ember/20 border border-ember/50 flex items-center justify-center text-flameGold group-hover:bg-fire-gradient group-hover:text-white transition-all duration-500 shadow-[0_0_20px_rgba(255,94,26,0.35)]">
+          <i data-lucide="flame" class="w-5 h-5 logo-flame-icon"></i>
+        </div>
+        <div>
+          <span class="logo-glow block">
+            <span class="logo-fire font-serif text-2xl sm:text-[1.7rem] tracking-wider font-black block leading-none">FLAMBÉ</span>
+          </span>
+          <span class="logo-fire font-sans font-semibold text-[10px] tracking-[0.32em] uppercase block mt-1.5 whitespace-nowrap">
+            Grill Catering
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-9 text-xs uppercase tracking-[0.2em] text-ash font-medium">
+        <a href="#cinema" class="hover:text-flameGold transition-colors">The Theatre</a>
+        <a href="#reels" class="hover:text-flameGold transition-colors">Viral Reels</a>
+        <a href="#craft" class="hover:text-flameGold transition-colors">100% Charcoal</a>
+        <a href="#menus" class="hover:text-flameGold transition-colors">Signature Menus</a>
+        <a href="#estimator" class="hover:text-flameGold transition-colors">Private Estates</a>
+      </nav>
+
+      <!-- Header CTA -->
+      <div class="hidden md:flex items-center gap-4">
+        <button onclick="openModal()" class="btn-luxury px-7 py-3 text-xs uppercase tracking-[0.2em] font-semibold rounded-full bg-fire-gradient text-white transition-all duration-300 hover:scale-[1.04] shadow-[0_0_30px_rgba(255,94,26,0.5)]">
+          Inquire For Your Date
+        </button>
       </div>
 
-      <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#catering">Catering</a>
-        <a href="#menu">Menu</a>
-        <a href="#events">Events</a>
-        <a href="#about">About</a>
-        <a href="#quote" class="nav-cta">Book Us</a>
-      </nav>
+      <!-- Mobile Menu Trigger -->
+      <button onclick="toggleMobileMenu()" class="lg:hidden text-alabaster p-2" aria-label="Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-  
- <section id="home" class="hero">
-  <div class="overlay"></div>
+  <!-- Mobile Fullscreen Menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-obsidian/95 backdrop-blur-2xl hidden flex-col justify-between p-8">
+    <div class="flex items-center justify-between border-b border-hairline pb-6">
+      <span class="font-serif text-xl tracking-wider text-alabaster">FLAMBÉ <span class="text-flameGold text-xs uppercase tracking-widest ml-1">Grill</span></span>
+      <button onclick="toggleMobileMenu()" class="w-10 h-10 rounded-full border border-hairline flex items-center justify-center text-ash">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+    <div class="flex flex-col gap-6 font-serif text-3xl my-auto">
+      <a href="#cinema" onclick="toggleMobileMenu()" class="text-alabaster hover:text-flameGold transition-colors">01. The Live-Fire Theatre</a>
+      <a href="#reels" onclick="toggleMobileMenu()" class="text-alabaster hover:text-flameGold transition-colors">02. Viral Spit Action</a>
+      <a href="#craft" onclick="toggleMobileMenu()" class="text-alabaster hover:text-flameGold transition-colors">03. 100% Charcoal Discipline</a>
+      <a href="#menus" onclick="toggleMobileMenu()" class="text-alabaster hover:text-flameGold transition-colors">04. Bespoke Greek Menus</a>
+    </div>
+    <button onclick="toggleMobileMenu(); openModal();" class="w-full py-4 rounded-full bg-fire-gradient text-white font-semibold uppercase tracking-widest text-xs shadow-[0_0_30px_rgba(255,94,26,0.5)]">
+      Reserve Your Date
+    </button>
+  </div>
 
-  <div class="container hero-content">
-    <h1>Live Fire Catering That Turns Any Event Into an Experience</h1>
+  <!-- ================================================================= -->
+  <!-- 2. HERO SECTION                                                   -->
+  <!-- ================================================================= -->
+  <section class="relative z-10 min-h-screen flex items-center pt-32 pb-20 border-b border-hairline/70 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+      
+      <!-- Left Column -->
+      <div class="lg:col-span-7 flex flex-col items-start">
+        <div class="gsap-hero inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-ember/50 bg-obsidian/70 backdrop-blur-md mb-7 shadow-[0_0_20px_rgba(255,94,26,0.25)]">
+          <span class="w-2 h-2 rounded-full bg-flameGold animate-ping"></span>
+          <span class="text-[11px] tracking-[0.22em] uppercase text-flameGold font-semibold">Scroll Down to Fan the Live Charcoal Flames</span>
+        </div>
 
-    <p>
-      Authentic Greek Gyro on the Spit • Fresh Carved Meats • Live Fire Cooking<br>
-      Serving South Florida
-    </p>
+        <h1 class="gsap-hero font-serif text-4xl sm:text-6xl xl:text-[68px] font-medium leading-[1.06] tracking-tight text-alabaster mb-7 drop-shadow-lg">
+          Theatrical Live-Fire <span class="italic text-fire-gradient">Gastronomy</span> Over Pure Charcoal.
+        </h1>
 
-    <div class="hero-buttons">
-      <a class="btn primary" href="#quote">GET A FAST QUOTE</a>
-      <a class="btn secondary" href="https://wa.me/17869350059" target="_blank" rel="noopener">
-        MESSAGE US ON WHATSAPP
-      </a>
+        <p class="gsap-hero text-ash text-base sm:text-lg font-normal leading-relaxed max-w-2xl mb-10 drop-shadow">
+          We bring custom stainless-steel horizontal rotisseries and glowing beds of <strong class="text-white font-semibold">100% natural charcoal</strong> directly to your private estate, yacht, or venue. Zero gas burners. Zero wood-smoke shortcuts. Pure Mediterranean culinary theater across Miami, Fort Lauderdale, Boca Raton, and Palm Beach.
+        </p>
+
+        <div class="gsap-hero flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+          <button onclick="openModal()" class="btn-luxury inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full bg-fire-gradient text-white font-semibold text-xs uppercase tracking-[0.2em] hover:scale-[1.03] transition-all duration-300 shadow-[0_0_40px_rgba(255,94,26,0.5)]">
+            <span>Request Private Proposal</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </button>
+          
+          <a href="#reels" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-ember/40 bg-obsidian/70 backdrop-blur-md text-alabaster font-medium text-xs uppercase tracking-[0.2em] hover:border-flameGold hover:bg-ember/20 transition-all duration-300">
+            <i data-lucide="play" class="w-3.5 h-3.5 text-flameGold fill-flameGold"></i>
+            <span>Watch Live Action</span>
+          </a>
+        </div>
+
+        <div class="gsap-hero mt-14 pt-8 border-t border-hairline/80 grid grid-cols-3 gap-6 sm:gap-12 w-full max-w-xl">
+          <div>
+            <p class="font-serif text-2xl sm:text-3xl text-flameGold font-semibold">100%</p>
+            <p class="text-[11px] uppercase tracking-widest text-ash mt-1">Natural Charcoal Beds</p>
+          </div>
+          <div class="border-l border-hairline/80 pl-6 sm:pl-10">
+            <p class="font-serif text-2xl sm:text-3xl text-alabaster">Horizontal</p>
+            <p class="text-[11px] uppercase tracking-widest text-ash mt-1">Rotisserie Spits Only</p>
+          </div>
+          <div class="border-l border-hairline/80 pl-6 sm:pl-10">
+            <p class="font-serif text-2xl sm:text-3xl text-flameGold font-semibold">On-Site</p>
+            <p class="text-[11px] uppercase tracking-widest text-ash mt-1">Live Carving Theatre</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Hero Video Frame -->
+      <div class="lg:col-span-5 relative gsap-hero-media">
+        <div class="relative rounded-3xl overflow-hidden border-2 border-ember/50 shadow-[0_0_70px_rgba(255,94,26,0.35)] aspect-[4/5] bg-surface/80 backdrop-blur-xl group">
+          <video 
+            id="hero-video"
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+           
+            class="w-full h-full object-cover vivid-media scale-105 group-hover:scale-100 transition-transform duration-1000"
+          ></video>
+          <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent pointer-events-none"></div>
+
+          <div class="absolute top-5 left-5 right-5 flex items-center justify-between z-20">
+            <div class="px-3.5 py-1.5 rounded-full bg-obsidian/80 backdrop-blur-md border border-ember/50 flex items-center gap-2 shadow-lg">
+              <span class="w-2.5 h-2.5 rounded-full bg-ember animate-ping"></span>
+              <span class="text-[10px] uppercase tracking-widest text-white font-semibold">Live Charcoal Spit</span>
+            </div>
+            <button onclick="toggleVideoAudio('hero-video', this)" class="w-9 h-9 rounded-full bg-obsidian/80 backdrop-blur-md border border-ember/40 flex items-center justify-center text-flameGold hover:scale-110 transition-transform" title="Toggle Audio">
+              <i data-lucide="volume-x" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <div class="absolute bottom-5 left-5 right-5 z-20 bg-obsidian/90 backdrop-blur-xl p-5 rounded-2xl border border-ember/30">
+            <div class="flex items-center justify-between text-[11px] uppercase tracking-widest text-flameGold font-semibold mb-1">
+              <span>Signature Execution</span>
+              <span>Zero Gas • Zero Wood Logs</span>
+            </div>
+            <p class="font-serif text-lg text-white">Horizontal Spit Gyro & Whole Heritage Roasts</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 3. VIVID EMBER TRUST TICKER                                       -->
+  <!-- ================================================================= -->
+  <section class="relative z-10 py-6 border-b border-hairline/80 bg-obsidian/70 backdrop-blur-lg overflow-hidden">
+    <div class="animate-marquee flex items-center gap-14 text-xs uppercase tracking-[0.32em] text-alabaster font-medium">
+      <span>PALM BEACH PRIVATE ESTATES</span>
+      <span class="text-ember text-base">✦</span>
+      <span>STAR ISLAND WATERFRONT VILLAS</span>
+      <span class="text-flameGold text-base">✦</span>
+      <span>BOCA RATON ROYAL PALM</span>
+      <span class="text-ember text-base">✦</span>
+      <span>CORAL GABLES GATED RESIDENCES</span>
+      <span class="text-flameGold text-base">✦</span>
+      <span>FORT LAUDERDALE SUPERYACHT CHARTERS</span>
+      <span class="text-ember text-base">✦</span>
+      <span>JUPITER ISLAND EXECUTIVE RETREATS</span>
+      <span class="text-flameGold text-base">✦</span>
+      <span>PALM BEACH PRIVATE ESTATES</span>
+      <span class="text-ember text-base">✦</span>
+      <span>STAR ISLAND WATERFRONT VILLAS</span>
+      <span class="text-flameGold text-base">✦</span>
+      <span>BOCA RATON ROYAL PALM</span>
+      <span class="text-ember text-base">✦</span>
+      <span>CORAL GABLES GATED RESIDENCES</span>
+      <span class="text-flameGold text-base">✦</span>
+      <span>FORT LAUDERDALE SUPERYACHT CHARTERS</span>
+      <span class="text-ember text-base">✦</span>
+      <span>JUPITER ISLAND EXECUTIVE RETREATS</span>
+      <span class="text-flameGold text-base">✦</span>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 3B. WHAT WE DO: CATERING MADE SIMPLE + CUSTOM MENU CALL-OUT       -->
+  <!-- ================================================================= -->
+  <section id="what-we-do" class="relative z-10 py-24 max-w-7xl mx-auto px-6 md:px-12">
+    <div class="text-center max-w-3xl mx-auto mb-14 gsap-fade-up">
+      <span class="text-xs uppercase tracking-[0.25em] text-flameGold font-semibold block mb-3">What We Do</span>
+      <h2 class="font-serif text-3xl sm:text-5xl text-alabaster drop-shadow-lg">
+        Catering Made Simple. <span class="italic text-fire-gradient whitespace-nowrap">Guests Love It.</span>
+      </h2>
+      <p class="text-ash text-base sm:text-lg leading-relaxed mt-6">
+        We bring everything needed and cook fresh on-site.<br class="hidden sm:block">
+        Your guests enjoy incredible food and live fire cooking.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <div class="rounded-2xl bg-surface/75 backdrop-blur-xl border border-ember/30 hover:border-flameGold p-5 sm:p-6 flex items-center gap-4 transition-all duration-500 gsap-fade-up shadow-xl">
+        <div class="w-12 h-12 rounded-xl bg-ember/10 border border-ember/30 flex items-center justify-center text-flameGold shrink-0">
+          <i data-lucide="cake" class="w-6 h-6"></i>
+        </div>
+        <span class="font-serif text-base sm:text-xl text-white">Birthday Parties</span>
+      </div>
+      <div class="rounded-2xl bg-surface/75 backdrop-blur-xl border border-ember/30 hover:border-flameGold p-5 sm:p-6 flex items-center gap-4 transition-all duration-500 gsap-fade-up shadow-xl">
+        <div class="w-12 h-12 rounded-xl bg-ember/10 border border-ember/30 flex items-center justify-center text-flameGold shrink-0">
+          <i data-lucide="house" class="w-6 h-6"></i>
+        </div>
+        <span class="font-serif text-base sm:text-xl text-white">Backyard Events</span>
+      </div>
+      <div class="rounded-2xl bg-surface/75 backdrop-blur-xl border border-ember/30 hover:border-flameGold p-5 sm:p-6 flex items-center gap-4 transition-all duration-500 gsap-fade-up shadow-xl">
+        <div class="w-12 h-12 rounded-xl bg-ember/10 border border-ember/30 flex items-center justify-center text-flameGold shrink-0">
+          <i data-lucide="waves" class="w-6 h-6"></i>
+        </div>
+        <span class="font-serif text-base sm:text-xl text-white">Beach Parties</span>
+      </div>
+      <div class="rounded-2xl bg-surface/75 backdrop-blur-xl border border-ember/30 hover:border-flameGold p-5 sm:p-6 flex items-center gap-4 transition-all duration-500 gsap-fade-up shadow-xl">
+        <div class="w-12 h-12 rounded-xl bg-ember/10 border border-ember/30 flex items-center justify-center text-flameGold shrink-0">
+          <i data-lucide="briefcase" class="w-6 h-6"></i>
+        </div>
+        <span class="font-serif text-base sm:text-xl text-white">Corporate Events</span>
+      </div>
+      <div class="rounded-2xl bg-surface/75 backdrop-blur-xl border border-ember/30 hover:border-flameGold p-5 sm:p-6 flex items-center gap-4 transition-all duration-500 gsap-fade-up shadow-xl">
+        <div class="w-12 h-12 rounded-xl bg-ember/10 border border-ember/30 flex items-center justify-center text-flameGold shrink-0">
+          <i data-lucide="users" class="w-6 h-6"></i>
+        </div>
+        <span class="font-serif text-base sm:text-xl text-white">Family Gatherings</span>
+      </div>
+      <div class="rounded-2xl bg-surface/75 backdrop-blur-xl border border-ember/30 hover:border-flameGold p-5 sm:p-6 flex items-center gap-4 transition-all duration-500 gsap-fade-up shadow-xl">
+        <div class="w-12 h-12 rounded-xl bg-ember/10 border border-ember/30 flex items-center justify-center text-flameGold shrink-0">
+          <i data-lucide="party-popper" class="w-6 h-6"></i>
+        </div>
+        <span class="font-serif text-base sm:text-xl text-white">Private Celebrations</span>
+      </div>
+    </div>
+
+    <div class="mt-10 rounded-3xl bg-surface/80 backdrop-blur-xl border-2 border-ember/40 p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 gsap-fade-up shadow-[0_0_60px_rgba(255,94,26,0.2)]">
+      <div class="max-w-2xl">
+        <span class="text-[10px] uppercase tracking-[0.25em] text-flameGold font-semibold block mb-2">Custom Menus</span>
+        <h3 class="font-serif text-2xl sm:text-3xl text-white mb-3">Every Event Is Different. Your Menu Can Be Too.</h3>
+        <p class="text-ash text-sm sm:text-base leading-relaxed">
+          Don't see exactly what you want? Ask for a custom menu. Tell us your date, your guests and the dishes you love, and we'll build the plan around your event.
+        </p>
+      </div>
+      <button onclick="openModalCustom()" class="btn-luxury shrink-0 inline-flex items-center justify-center px-9 py-4 rounded-full bg-fire-gradient text-white font-semibold text-xs uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,94,26,0.45)]">
+        Ask for a Custom Menu
+      </button>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 4. SCROLL-EXPANDING FULL-BLEED CINEMA SHOWCASE                    -->
+  <!-- ================================================================= -->
+  <section id="cinema" class="relative z-10 py-28 px-4 sm:px-8 max-w-[1600px] mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-14 gsap-fade-up">
+      <span class="text-xs uppercase tracking-[0.25em] text-flameGold font-semibold block mb-3">Sensory Immersion</span>
+      <h2 class="font-serif text-3xl sm:text-5xl text-alabaster drop-shadow-lg">
+        When the Spit Turns, <span class="italic text-fire-gradient">The Crowd Gathers.</span>
+      </h2>
+    </div>
+
+    <div id="expanding-cinema" class="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden border-2 border-ember/50 aspect-video bg-surface/80 shadow-[0_0_80px_rgba(255,94,26,0.3)]">
+      <video 
+        id="cinema-video"
+        autoplay 
+        loop 
+        muted 
+        playsinline 
+       
+        class="w-full h-full object-cover vivid-media"
+      ></video>
+      <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-obsidian via-obsidian/50 to-transparent pointer-events-none"></div>
+
+      <div class="absolute bottom-6 sm:bottom-12 left-6 sm:left-12 right-6 sm:right-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6 z-20">
+        <div class="max-w-xl">
+          <span class="px-3.5 py-1 rounded-full bg-fire-gradient text-white text-[10px] uppercase tracking-widest font-bold shadow-lg">Live On-Site Architecture</span>
+          <h3 class="font-serif text-2xl sm:text-4xl text-white mt-3 drop-shadow-md">
+            Self-Basting Horizontal Rotisseries Over Glowing Charcoal
+          </h3>
+          <p class="text-alabaster/90 text-sm font-normal mt-2">
+            Every drop of natural jus caramelizes directly over radiant 100% charcoal embers—creating an aroma and crackle no commercial kitchen can replicate.
+          </p>
+        </div>
+        <button onclick="openModal()" class="btn-luxury shrink-0 px-8 py-4 rounded-full bg-fire-gradient text-white text-xs uppercase tracking-widest font-bold shadow-[0_0_30px_rgba(255,94,26,0.5)] hover:scale-105 transition-transform">
+          Book This Setup
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 5. VIRAL 9:16 REELS & MOTION GALLERY                              -->
+  <!-- ================================================================= -->
+  <section id="reels" class="relative z-10 py-24 border-y border-hairline/80 bg-obsidian/65 backdrop-blur-md overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gsap-fade-up">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-ember/40 bg-ember/10 mb-4">
+            <i data-lucide="flame" class="w-3.5 h-3.5 text-flameGold"></i>
+            <span class="text-xs tracking-widest uppercase text-flameGold font-semibold">Click Any Reel to Pause / Play</span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl text-alabaster">
+            Viral Moments from the <span class="italic text-fire-gradient">Fire Pit</span>
+          </h2>
+        </div>
+
+        <div class="flex items-center gap-3 mt-6 md:mt-0">
+          <button onclick="scrollReels(-360)" class="w-12 h-12 rounded-full border border-ember/40 bg-surface/80 flex items-center justify-center text-flameGold hover:bg-fire-gradient hover:text-white transition-all">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+          <button onclick="scrollReels(360)" class="w-12 h-12 rounded-full border border-ember/40 bg-surface/80 flex items-center justify-center text-flameGold hover:bg-fire-gradient hover:text-white transition-all">
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="reels-track" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+        
+        <div class="snap-start relative rounded-2xl overflow-hidden border border-ember/30 hover:border-flameGold aspect-[9/16] bg-surface/80 group cursor-pointer shadow-2xl transition-all duration-300" onclick="toggleReelPlay('reel-1')">
+          <video id="reel-1" autoplay loop muted playsinline class="w-full h-full object-cover vivid-media group-hover:scale-105 transition-transform duration-700"></video>
+          <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-obsidian via-obsidian/70 to-transparent"></div>
+          <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-obsidian/80 backdrop-blur-md border border-ember/50 text-[10px] uppercase tracking-widest text-flameGold font-semibold">
+            01 • Horizontal Gyro
+          </div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <p class="font-serif text-xl text-white mb-1">Carving the Horizontal Gyro Spit</p>
+            <p class="text-xs text-ash font-normal">Stacked pork & chicken rotating horizontally over pure charcoal.</p>
+          </div>
+        </div>
+
+        <div class="snap-start relative rounded-2xl overflow-hidden border border-ember/30 hover:border-flameGold aspect-[9/16] bg-surface/80 group cursor-pointer shadow-2xl transition-all duration-300" onclick="toggleReelPlay('reel-2')">
+          <video id="reel-2" autoplay loop muted playsinline class="w-full h-full object-cover vivid-media group-hover:scale-105 transition-transform duration-700"></video>
+          <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-obsidian via-obsidian/70 to-transparent"></div>
+          <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-obsidian/80 backdrop-blur-md border border-ember/50 text-[10px] uppercase tracking-widest text-flameGold font-semibold">
+            02 • Glass-Crisp Skin
+          </div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <p class="font-serif text-xl text-white mb-1">Whole Pig & Lamb Spit Roast</p>
+            <p class="text-xs text-ash font-normal">5-hour slow rotation over radiant natural charcoal beds.</p>
+          </div>
+        </div>
+
+        <div class="snap-start relative rounded-2xl overflow-hidden border border-ember/30 hover:border-flameGold aspect-[9/16] bg-surface/80 group cursor-pointer shadow-2xl transition-all duration-300" onclick="toggleReelPlay('reel-3')">
+          <video id="reel-3" autoplay loop muted playsinline class="w-full h-full object-cover vivid-media group-hover:scale-105 transition-transform duration-700"></video>
+          <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-obsidian via-obsidian/70 to-transparent"></div>
+          <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-obsidian/80 backdrop-blur-md border border-ember/50 text-[10px] uppercase tracking-widest text-flameGold font-semibold">
+            03 • Pure Charcoal
+          </div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <p class="font-serif text-xl text-white mb-1">Igniting 100% Natural Charcoal</p>
+            <p class="text-xs text-ash font-normal">No gas burners. No wood logs. Clean infrared ember heat.</p>
+          </div>
+        </div>
+
+        <div class="snap-start relative rounded-2xl overflow-hidden border border-ember/30 hover:border-flameGold aspect-[9/16] bg-surface/80 group cursor-pointer shadow-2xl transition-all duration-300" onclick="toggleReelPlay('reel-4')">
+          <video id="reel-4" autoplay loop muted playsinline class="w-full h-full object-cover vivid-media group-hover:scale-105 transition-transform duration-700"></video>
+          <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-obsidian via-obsidian/70 to-transparent"></div>
+          <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-obsidian/80 backdrop-blur-md border border-ember/50 text-[10px] uppercase tracking-widest text-flameGold font-semibold">
+            04 • Estate Presentation
+          </div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <p class="font-serif text-xl text-white mb-1">Souvlaki, Tomahawks & Mezze</p>
+            <p class="text-xs text-ash font-normal">Plated live for private gatherings from Miami to Palm Beach.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 6. ASYMMETRICAL BENTO GRID (TRANSLUCENT GLASS OVER REAL FLAMES)   -->
+  <!-- ================================================================= -->
+  <section id="craft" class="relative z-10 py-28 max-w-7xl mx-auto px-6 md:px-12">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gsap-fade-up">
+      <div>
+        <span class="text-xs uppercase tracking-[0.25em] text-flameGold font-semibold block mb-3">Engineering & Taste</span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-alabaster">
+          Four Pillars of <span class="italic text-fire-gradient">Flambé Grill</span>
+        </h2>
+      </div>
+      <p class="text-ash max-w-md mt-4 md:mt-0 font-normal text-sm leading-relaxed">
+        Designed for hosts who demand authentic culinary provenance without lifting a finger.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+      
+      <div class="md:col-span-7 rounded-3xl bg-surface/75 backdrop-blur-xl border border-ember/30 hover:border-flameGold overflow-hidden group transition-all duration-500 flex flex-col justify-between gsap-fade-up shadow-2xl">
+        <div class="relative h-72 overflow-hidden">
+          <img id="bento-img-1" alt="100% Natural Charcoal Beds" class="w-full h-full object-cover vivid-media group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-surface to-transparent"></div>
+          <span class="absolute top-5 left-5 px-3.5 py-1 rounded-full bg-obsidian/85 backdrop-blur-md border border-ember/50 text-[10px] uppercase tracking-widest text-flameGold font-semibold">
+            Pillar 01 • Fuel Purity
+          </span>
+        </div>
+        <div class="p-8 sm:p-10 pt-4">
+          <h3 class="font-serif text-2xl sm:text-3xl text-white mb-3">100% Natural Charcoal Beds Exclusively</h3>
+          <p class="text-ash font-normal text-sm sm:text-base leading-relaxed mb-6">
+            We never compromise with propane gas or overpowering wood-fire logs. Our custom stainless-steel pits burn pure natural charcoal exclusively—delivering clean, high-heat infrared radiation that sears proteins while preserving delicate Greek herbs, lemon, and olive oil marinades.
+          </p>
+          <div class="flex flex-wrap gap-3 text-[11px] uppercase tracking-wider text-flameGold font-medium">
+            <span class="px-3.5 py-1.5 rounded-full border border-ember/40 bg-ember/10">Zero Gas Burners</span>
+            <span class="px-3.5 py-1.5 rounded-full border border-ember/40 bg-ember/10">Zero Wood Logs</span>
+            <span class="px-3.5 py-1.5 rounded-full border border-ember/40 bg-ember/10">Pure Lump Charcoal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-5 rounded-3xl bg-surface/75 backdrop-blur-xl border border-ember/30 hover:border-flameGold overflow-hidden group transition-all duration-500 flex flex-col justify-between gsap-fade-up shadow-2xl">
+        <div class="relative h-72 overflow-hidden">
+          <img id="bento-img-2" alt="Horizontal Rotisserie Spit" class="w-full h-full object-cover vivid-media group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-surface to-transparent"></div>
+          <span class="absolute top-5 left-5 px-3.5 py-1 rounded-full bg-obsidian/85 backdrop-blur-md border border-ember/50 text-[10px] uppercase tracking-widest text-flameGold font-semibold">
+            Pillar 02 • Authentic Mechanics
+          </span>
+        </div>
+        <div class="p-8 sm:p-10 pt-4">
+          <h3 class="font-serif text-2xl text-white mb-3">Horizontal Rotisserie Spits</h3>
+          <p class="text-ash font-normal text-sm leading-relaxed mb-6">
+            Unlike commercial vertical cones that dry out meat, our heavy-duty horizontal spits turn slowly above glowing charcoal so natural juices continuously baste every layer of gyro and kontosouvli.
+          </p>
+          <span class="text-xs uppercase tracking-widest text-flameGold font-semibold flex items-center gap-2">
+            Traditional Greek Spit Engineering <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="md:col-span-5 rounded-3xl bg-surface/75 backdrop-blur-xl border border-ember/30 hover:border-flameGold overflow-hidden group transition-all duration-500 flex flex-col justify-between gsap-fade-up shadow-2xl">
+        <div class="relative h-72 overflow-hidden">
+          <img id="bento-img-3" alt="Whole Lamb and Pig Spit Roasts" class="w-full h-full object-cover vivid-media group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-surface to-transparent"></div>
+          <span class="absolute top-5 left-5 px-3.5 py-1 rounded-full bg-obsidian/85 backdrop-blur-md border border-ember/50 text-[10px] uppercase tracking-widest text-flameGold font-semibold">
+            Pillar 03 • Grand Centerpiece
+          </span>
+        </div>
+        <div class="p-8 sm:p-10 pt-4">
+          <h3 class="font-serif text-2xl text-white mb-3">Whole Pig & Spring Lamb Roasts</h3>
+          <p class="text-ash font-normal text-sm leading-relaxed mb-6">
+            The ultimate visual spectacle for milestone celebrations. Whole heritage pig or tender spring lamb slow-roasted over natural charcoal until the skin shatters like glass.
+          </p>
+          <span class="text-xs uppercase tracking-widest text-flameGold font-semibold flex items-center gap-2">
+            Carved Live Before Your Guests <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="md:col-span-7 rounded-3xl bg-surface/75 backdrop-blur-xl border border-ember/30 hover:border-flameGold overflow-hidden group transition-all duration-500 flex flex-col justify-between gsap-fade-up shadow-2xl">
+        <div class="relative h-72 overflow-hidden">
+          <img id="bento-img-4" alt="Mediterranean Feast & Sides" class="w-full h-full object-cover vivid-media group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-surface to-transparent"></div>
+          <span class="absolute top-5 left-5 px-3.5 py-1 rounded-full bg-obsidian/85 backdrop-blur-md border border-ember/50 text-[10px] uppercase tracking-widest text-flameGold font-semibold">
+            Pillar 04 • Complete Gastronomy
+          </span>
+        </div>
+        <div class="p-8 sm:p-10 pt-4">
+          <h3 class="font-serif text-2xl sm:text-3xl text-white mb-3">Artisanal Greek Classics & Prime Steaks</h3>
+          <p class="text-ash font-normal text-sm sm:text-base leading-relaxed mb-6">
+            Beyond the spit, we craft a complete Mediterranean table: hand-skewered souvlaki, prime tomahawk steaks, traditional moussaka, pastitsio, flaky spanakopita, gemista, lemon-oregano roasted potatoes, and thick house-made tzatziki.
+          </p>
+          <div class="flex flex-wrap gap-3 text-[11px] uppercase tracking-wider text-flameGold font-medium">
+            <span class="px-3.5 py-1.5 rounded-full border border-ember/40 bg-ember/10">Moussaka & Pastitsio</span>
+            <span class="px-3.5 py-1.5 rounded-full border border-ember/40 bg-ember/10">Spanakopita</span>
+            <span class="px-3.5 py-1.5 rounded-full border border-ember/40 bg-ember/10">Lemon Roasted Potatoes</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 7. INTERACTIVE BESPOKE MENU ARCHITECTURE                          -->
+  <!-- ================================================================= -->
+  <section id="menus" class="relative z-10 py-28 border-t border-hairline/80 bg-obsidian/60 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-14 gsap-fade-up">
+        <span class="text-xs uppercase tracking-[0.25em] text-flameGold font-semibold block mb-3">Curated Culinary Collections</span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-alabaster mb-6">
+          Bespoke Live-Fire <span class="italic text-fire-gradient">Menus</span>
+        </h2>
+        <div class="inline-flex flex-wrap justify-center gap-2 p-1.5 rounded-full border border-ember/30 bg-surface/80 backdrop-blur-xl">
+          <button onclick="switchMenuTab('spit', this)" class="menu-tab active px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold bg-fire-gradient text-white transition-all">
+            Horizontal Spit & Whole Roasts
+          </button>
+          <button onclick="switchMenuTab('grill', this)" class="menu-tab px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold text-ash hover:text-white transition-all">
+            Charcoal Grill & Souvlaki
+          </button>
+          <button onclick="switchMenuTab('traditional', this)" class="menu-tab px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold text-ash hover:text-white transition-all">
+            Greek Classics & Sides
+          </button>
+        </div>
+      </div>
+
+      <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 8. INTERACTIVE PRIVATE ESTATE ESTIMATOR & FINAL CTA               -->
+  <!-- ================================================================= -->
+  <section id="estimator" class="relative z-10 py-28 border-t border-hairline/80 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-6 md:px-12 relative z-10">
+      <div class="rounded-3xl bg-surface/80 backdrop-blur-2xl border-2 border-ember/50 p-8 sm:p-14 shadow-[0_0_80px_rgba(255,94,26,0.28)] gsap-fade-up">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7">
+            <span class="text-xs uppercase tracking-[0.25em] text-flameGold font-semibold block mb-2">Instant Experience Configurator</span>
+            <h2 class="font-serif text-3xl sm:text-4xl text-white mb-4">
+              Design Your <span class="italic text-fire-gradient">Live-Fire</span> Commission
+            </h2>
+            <p class="text-ash text-sm font-normal leading-relaxed mb-8">
+              Adjust your estimated guest count to preview our recommended stainless-steel charcoal rig configuration before requesting your custom quote.
+            </p>
+
+            <div class="mb-8">
+              <div class="flex justify-between items-end mb-3">
+                <span class="text-xs uppercase tracking-widest text-ash">Estimated Guest Count</span>
+                <span id="guest-display" class="font-serif text-3xl text-flameGold font-semibold">60 Guests</span>
+              </div>
+              <input 
+                id="guest-slider" 
+                type="range" 
+                min="20" 
+                max="250" 
+                step="5" 
+                value="60" 
+                oninput="updateEstimator(this.value)"
+                class="w-full accent-[#FF5E1A] bg-obsidian h-2.5 rounded-lg cursor-pointer"
+              />
+              <div class="flex justify-between text-[10px] uppercase tracking-widest text-ash mt-2">
+                <span>20 (Intimate Villa)</span>
+                <span>100 (Estate Soirée)</span>
+                <span>250+ (Grand Gala)</span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-obsidian/90 border border-ember/30 flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-ember/20 border border-ember/40 flex items-center justify-center text-flameGold shrink-0 mt-0.5">
+                <i data-lucide="flame" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-widest text-flameGold font-semibold mb-1">Recommended Live-Fire Setup</p>
+                <p id="rig-recommendation" class="text-sm text-white font-normal">
+                  Dual Horizontal Rotisserie Spits + Custom Stainless Charcoal Grill Bed + 2 Live-Fire Chefs On-Site.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex flex-col justify-between p-8 rounded-2xl bg-obsidian/90 border border-ember/30 text-center">
+            <i data-lucide="calendar-check" class="w-10 h-10 text-flameGold mx-auto mb-4"></i>
+            <h3 class="font-serif text-2xl text-white mb-2">Check Weekend Availability</h3>
+            <p class="text-xs text-ash font-normal leading-relaxed mb-8">
+              We commit exclusively to select private commissions per weekend across Miami-Dade, Broward, and Palm Beach Counties.
+            </p>
+            <button onclick="openModalWithGuests()" class="btn-luxury w-full py-4 rounded-full bg-fire-gradient text-white font-semibold text-xs uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,94,26,0.45)]">
+              Lock In Your Proposal
+            </button>
+            <p class="text-[11px] text-ash mt-4">Direct response within 24 hours</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- 9. FOOTER                                                         -->
+  <!-- ================================================================= -->
+  <footer class="relative z-10 border-t border-hairline bg-obsidian/90 backdrop-blur-xl py-16 text-xs text-ash">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="font-serif text-lg text-white tracking-wider">FLAMBÉ GRILL CATERING LLC</span>
+        <span>•</span>
+        <span class="text-flameGold uppercase tracking-widest font-semibold">South Florida</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-6 uppercase tracking-widest">
+        <span>Miami</span>
+        <span>Fort Lauderdale</span>
+        <span>Boca Raton</span>
+        <span>Palm Beach</span>
+      </div>
+      <p>© 2026 Flambé Grill Catering LLC. All Rights Reserved.</p>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 md:px-12 mt-8 pt-8 border-t border-hairline/80 flex flex-wrap items-center justify-center sm:justify-between gap-x-8 gap-y-3 uppercase tracking-widest">
+      <a href="tel:+17869350059" class="hover:text-flameGold transition-colors">+1 (786) 935-0059</a>
+      <a href="https://wa.me/17869350059?text=Hi%20Flamb%C3%A9%20Grill%2C%20I%27d%20like%20to%20ask%20about%20catering." target="_blank" rel="noopener" class="hover:text-flameGold transition-colors">WhatsApp</a>
+      <a href="mailto:info@flambegrill.com" class="hover:text-flameGold transition-colors">info@flambegrill.com</a>
+      <a href="https://www.instagram.com/flambegrill/" target="_blank" rel="noopener" class="hover:text-flameGold transition-colors">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61554979903834" target="_blank" rel="noopener" class="hover:text-flameGold transition-colors">Facebook</a>
+      <a href="Flambe-Grill-Catering-Menu.pdf" target="_blank" rel="noopener" class="hover:text-flameGold transition-colors">Menu PDF</a>
+    </div>
+  </footer>
+
+  <!-- Floating contact buttons (phones only, same as the current site) -->
+  <a href="tel:+17869350059" class="md:hidden fixed bottom-5 right-4 z-40 inline-flex items-center justify-center px-6 py-4 rounded-full bg-fire-gradient text-white text-sm font-semibold shadow-2xl" aria-label="Call Flambé Grill">Call Now</a>
+  <a href="https://wa.me/17869350059?text=Hi%20Flamb%C3%A9%20Grill%2C%20I%27d%20like%20to%20ask%20about%20catering." target="_blank" rel="noopener" class="md:hidden fixed bottom-5 right-[150px] z-40 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-2xl" aria-label="Text us on WhatsApp">
+    <svg class="w-6 h-6" viewBox="0 0 32 32" aria-hidden="true"><path fill="white" d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.8 5.6 2.3 8l-1.5 5.5 5.7-1.5c2.3 1.3 5 2 7.7 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28c-2.4 0-4.8-.6-6.9-1.8l-.5-.3-3.4.9.9-3.3-.4-.5C4.6 21.1 4 18.6 4 16 4 9.4 9.4 4 16 4s12 5.4 12 12-5.4 12-12 12zm6.7-9.1c-.4-.2-2.2-1.1-2.5-1.2s-.6-.2-.9.2c-.3.4-1 1.2-1.2 1.5-.2.2-.4.3-.7.1-.4-.2-1.7-.6-3.3-2-.1-.1-1.2-1.1-1.1-2.1 0-.9.6-1.3.8-1.5.2-.2.3-.3.5-.5.2-.2.3-.3.5-.6.2-.3.1-.5 0-.7-.1-.2-.9-2.2-1.2-3-.3-.7-.6-.6-.9-.6h-.8c-.3 0-.7.1-.9.4-.3.4-1.1 1.1-1.1 2.7s1.1 3.1 1.2 3.3c.2.2 2.2 3.4 5.3 4.8.7.3 1.2.5 1.6.7.7.3 1.3.2 1.8.1.6-.1 1.9-.8 2.2-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.7-.5z"/></svg>
+  </a>
+
+  <!-- ================================================================= -->
+  <!-- 10. AJAX FORMSPREE CONCIERGE MODAL                                -->
+  <!-- ================================================================= -->
+  <div id="inquiry-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div onclick="closeModal()" class="absolute inset-0 bg-obsidian/90 backdrop-blur-xl"></div>
+    
+    <div class="relative z-10 w-full max-w-xl rounded-3xl bg-surface border border-ember/50 p-8 sm:p-10 shadow-[0_0_60px_rgba(255,94,26,0.3)] max-h-[92vh] overflow-y-auto">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-flameGold font-semibold">Private Catering Concierge</span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-white mt-1">Request Your Event Proposal</h3>
+        </div>
+        <button onclick="closeModal()" class="w-10 h-10 rounded-full border border-hairline flex items-center justify-center text-ash hover:text-white hover:border-ember transition-all">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="concierge-form" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-ash mb-2">Full Name *</label>
+            <input required type="text" name="name" placeholder="Your Full Name" class="w-full rounded-xl bg-obsidian border border-hairline px-4 py-3.5 text-sm text-white focus:outline-none focus:border-ember" />
+          </div>
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-ash mb-2">Phone / WhatsApp *</label>
+            <input required type="tel" name="phone" placeholder="(561) 555-0199" class="w-full rounded-xl bg-obsidian border border-hairline px-4 py-3.5 text-sm text-white focus:outline-none focus:border-ember" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-ash mb-2">Email Address *</label>
+            <input required type="email" name="email" placeholder="you@domain.com" class="w-full rounded-xl bg-obsidian border border-hairline px-4 py-3.5 text-sm text-white focus:outline-none focus:border-ember" />
+          </div>
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-ash mb-2">Preferred Event Date *</label>
+            <input required type="date" name="event_date" class="w-full rounded-xl bg-obsidian border border-hairline px-4 py-3.5 text-sm text-white focus:outline-none focus:border-ember" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-ash mb-2">Estimated Guests *</label>
+            <input id="modal-guests" required type="number" name="guests" min="15" value="60" class="w-full rounded-xl bg-obsidian border border-hairline px-4 py-3.5 text-sm text-white focus:outline-none focus:border-ember" />
+          </div>
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider text-ash mb-2">South Florida City / Venue *</label>
+            <input required type="text" name="location" placeholder="Boca Raton / Palm Beach / Miami" class="w-full rounded-xl bg-obsidian border border-hairline px-4 py-3.5 text-sm text-white focus:outline-none focus:border-ember" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] uppercase tracking-wider text-ash mb-2">Type of Event</label>
+          <select name="event_type" class="w-full rounded-xl bg-obsidian border border-hairline px-4 py-3.5 text-sm text-white focus:outline-none focus:border-ember">
+            <option value="Birthday party">Birthday party</option>
+            <option value="Backyard event">Backyard event</option>
+            <option value="Beach party">Beach party</option>
+            <option value="Corporate event">Corporate event</option>
+            <option value="Family gathering">Family gathering</option>
+            <option value="Private celebration">Private celebration</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-[11px] uppercase tracking-wider text-ash mb-2">Primary Live-Fire Experience</label>
+          <select id="f-experience" name="experience" onchange="syncCustomMenu()" class="w-full rounded-xl bg-obsidian border border-hairline px-4 py-3.5 text-sm text-white focus:outline-none focus:border-ember">
+            <option value="Horizontal Spit Gyro & Mediterranean Feast">Horizontal Spit Gyro & Mediterranean Feast</option>
+            <option value="Whole Pig or Spring Lamb Spit Roast">Whole Pig or Spring Lamb Charcoal Spit Roast</option>
+            <option value="Prime Tomahawk, Souvlaki & Charcoal Feast">Prime Tomahawk, Souvlaki & Charcoal Feast</option>
+            <option value="Full Bespoke Estate Experience">Full Bespoke Estate Experience (Spits + Greek Classics)</option>
+            <option value="CUSTOM MENU REQUEST">Custom Menu: I'll tell you what I want</option>
+          </select>
+        </div>
+
+        <div>
+          <label id="notes-label" for="f-notes" class="block text-[11px] uppercase tracking-wider text-ash mb-2">Anything Else? (optional)</label>
+          <textarea id="f-notes" name="message" rows="3" placeholder="Tell us about your event, timing and anything you'd like us to know." class="w-full rounded-xl bg-obsidian border border-hairline px-4 py-3 text-sm text-white placeholder:text-ash/50 focus:outline-none focus:border-ember"></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" value="New booking request from Flambé Grill website" />
+        <p id="form-error" class="hidden text-sm text-red-300"></p>
+        <button id="submit-btn" type="submit" class="btn-luxury w-full py-4 rounded-xl bg-fire-gradient text-white font-semibold text-xs uppercase tracking-[0.2em] transition-all shadow-[0_0_30px_rgba(255,94,26,0.45)]">
+          Submit Private Inquiry
+        </button>
+      </form>
+
+      <div id="form-success" class="hidden text-center py-10">
+        <div class="w-16 h-16 rounded-full bg-ember/20 border border-ember flex items-center justify-center text-flameGold mx-auto mb-6">
+          <i data-lucide="check" class="w-8 h-8"></i>
+        </div>
+        <h4 class="font-serif text-3xl text-white mb-3">Inquiry Received</h4>
+        <p class="text-ash text-sm font-normal max-w-md mx-auto mb-8">
+          Thank you. We are reviewing your date and guest count and will reach out personally with your tailored live-fire menu proposal.
+        </p>
+        <button onclick="closeModal()" class="px-8 py-3 rounded-full border border-ember text-xs uppercase tracking-widest text-white">
+          Return to Experience
+        </button>
+      </div>
     </div>
   </div>
-</section>
 
-
-
-    <!-- Trust -->
-    <section class="section section-light trust">
-      <div class="container">
-        <h2>Catering Made Simple. Guests Love It.</h2>
-        <p class="section-intro">
-          We bring everything needed and cook fresh on-site.<br>
-          Your guests enjoy incredible food and live fire cooking.
-        </p>
-
-        <ul class="bullets">
-          <li>Birthday parties</li>
-          <li>Backyard events</li>
-          <li>Beach parties</li>
-          <li>Corporate events</li>
-          <li>Family gatherings</li>
-          <li>Private celebrations</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Gyro -->
-    <section class="section section-dark gyro">
-      <div class="container">
-        <h2>Our Signature Live Gyro Experience</h2>
-        <p class="section-intro">
-          Real stacked meats rotating slowly on the spit.<br>
-          Carved fresh and served hot to your guests.
-        </p>
-        <p><strong>Fast service. Incredible flavor. Memorable experience.</strong></p>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="section section-light pricing">
-      <div class="container">
-        <h2>Premium Live-Fire Catering packages for Every Budget.</h2>
-        <p class="section-intro">
-          Most events range between <strong>$35 to $65 per person</strong> depending on group size and menu.
-        </p>
-        <p>Simple, transparent pricing with no surprises.</p>
-        <a class="btn primary" href="#quote">REQUEST YOUR QUOTE NOW</a>
-      </div>
-    </section>
-
-    <!-- Catering -->
-    <section id="catering" class="section section-light">
-      <div class="container">
-        <h2>Live Fire Catering Services</h2>
-        <p class="section-intro">
-          We cook everything fresh on site over charcoal and open fire. Perfect for bachelor parties,
-          golf events, corporate groups and private celebrations.
-        </p>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Tomahawk Experience</h3>
-            <p>Premium tomahawk and other steak cuts grilled live at your event. A show and a feast in one.</p>
-            <ul>
-              <li>On site charcoal grills</li>
-              <li>Thick cut tomahawks and premium beef</li>
-              <li>Ideal for smaller groups and VIP nights</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Greek Gyro Spit</h3>
-            <p>Authentic Greek style gyro, mixed meats marinated with our signature rub, slowly cooked on the spit.</p>
-            <ul>
-              <li>Lamb, pork and chicken mix</li>
-              <li>Served in pita or on plates</li>
-              <li>Perfect for larger groups, corporate events, birthday parties, anniversary celebrations.</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Full Fire Feast</h3>
-            <p>Combine steaks, gyro, whole lamb or pig and custom sides for a full live fire experience tailored to your event.</p>
-            <ul>
-              <li>Custom menu planning</li>
-              <li>We bring all equipment</li>
-              <li>Great for big parties and corporate events</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="service-area">
-          <h4>Service Area</h4>
-          <p>
-            We serve South Florida, including Miami, Miami Beach, Fort Lauderdale, Hollywood, Boca Raton,
-            Delray Beach, Pompano Beach, West Palm Beach, Jupiter, and Palm Beach.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- MENU -->
-    <section id="menu" class="section section-dark menu-section">
-      <div class="container">
-        <h2>FlambeGrill Catering Menu</h2>
-        <p class="section-intro">
-          Live fire catering for private and corporate events. Choose your main experience and we build the menu around your event.
-        </p>
-
-        <div class="menu-block menu-block-large" style="background-image: url('gallery3.jpg');">
-          <div class="menu-block-overlay">
-            <h3>Whole Animal Roast</h3>
-            <p>Lamb or pork slow roasted over charcoal and carved on site. A striking centerpiece for large events and outdoor celebrations.</p>
-            <ul>
-              <li>Whole lamb or whole pork on the spit</li>
-              <li>Charcoal fire show and carving station</li>
-              <li>Perfect for weddings, birthdays and big family gatherings</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="menu-block menu-block-large" style="background-image: url('gallery2.jpg');">
-          <div class="menu-block-overlay">
-            <h3>Greek Gyro on the Spit</h3>
-            <p>Authentic Greek style gyro with mixed meats, marinated and cooked slowly over fire, then hand carved for each guest.</p>
-            <ul>
-              <li>Lamb, pork and chicken mix with Greek herbs</li>
-              <li>Served as plates or pita wraps</li>
-              <li>Fast service for medium and large groups</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="menu-block menu-block-large" style="background-image: url('gallery1.jpg');">
-          <div class="menu-block-overlay">
-            <h3>Live Fire Steaks &amp; BBQ</h3>
-            <p>Premium cuts cooked over real fire. From ribeye and picanha to wings and sausages, we turn any location into a live fire kitchen.</p>
-            <ul>
-              <li>Ribeye, picanha, sirloin and more</li>
-              <li>Wings, ribs, sausages and grilled vegetables</li>
-              <li>Fire show presentation in front of your guests</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="menu-grid">
-          <div class="menu-card">
-            <h4>Sides</h4>
-            <ul>
-              <li>Greek salad</li>
-              <li>Caesar salad</li>
-              <li>Lemon potatoes</li>
-              <li>Rice or grilled vegetables</li>
-            </ul>
-          </div>
-          <div class="menu-card">
-            <h4>Sauces</h4>
-            <ul>
-              <li>Tzatziki</li>
-              <li>Spicy feta</li>
-              <li>Garlic herb sauce</li>
-            </ul>
-          </div>
-          <div class="menu-card">
-            <h4>Extras</h4>
-            <ul>
-              <li>Additional chef or staff</li>
-              <li>Extra grilling time</li>
-              <li>Lighting or tent setup (on request)</li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="note-small menu-note">
-<div style="text-align:center; margin:2.5rem 0 1rem;">
-  <h3>Take the menu with you</h3>
-  <p>Download our catering flyer to see what we do and start planning your event.</p>
-  <a class="btn primary" href="Flambe-Grill-Catering-Menu.pdf" target="_blank" rel="noopener">DOWNLOAD THE MENU (PDF)</a>
-</div>
-          Menus are customized to your event size, location and timing. No fixed prices here.
-          Tell us about your event and we build the best live fire plan for you.
-        </p>
-      </div>
-    </section>
-
-    <!-- Events & Gallery -->
-    <section id="events" class="section section-dark">
-      <div class="container">
-        <h2>Events &amp; Gallery</h2>
-        <p class="section-intro">
-          A small taste of what Flambé Grill looks like on location. Golf fields, backyards, rooftops,
-          private homes and more.
-        </p>
-
-        <div class="gallery-slider">
-          <button class="slider-btn prev" aria-label="Previous photo">&#10094;</button>
-
-          <div class="slider-track">
-            <div class="slide" style="background-image: url('gallery1.jpg');"></div>
-            <div class="slide" style="background-image: url('gallery2.jpg');"></div>
-            <div class="slide" style="background-image: url('gallery3.jpg');"></div>
-            <div class="slide" style="background-image: url('gallery4.jpg');"></div>
-            <div class="slide" style="background-image: url('gallery5.jpg');"></div>
-            <div class="slide" style="background-image: url('gallery6.jpg');"></div>
-          </div>
-
-          <button class="slider-btn next" aria-label="Next photo">&#10095;</button>
-        </div>
-
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <div class="gallery-photo" style="background-image: url('gallery1.jpg');"></div>
-            <h4>Bachelor Party Tomahawk Night</h4>
-            <p>Live tomahawk grilling on site for a bachelor group, late night service until the fire cooled down.</p>
-          </div>
-          <div class="gallery-item">
-            <div class="gallery-photo" style="background-image: url('gallery2.jpg');"></div>
-            <h4>Private Backyard Fire Feast</h4>
-            <p>Full gyro setup with whole pig custom menu with steaks, gyro and sides for a private family celebration.</p>
-          </div>
-          <div class="gallery-item">
-            <div class="gallery-photo" style="background-image: url('gallery3.jpg');"></div>
-            <h4>Beachside Birthday Celebration</h4>
-            <p>For this birthday event, we set up directly on the sand.</p>
-          </div>
-        </div>
-
-        <div class="social-buttons">
-          <h3>Follow Us</h3>
-          <p>See more photos, behind-the-scenes fire, and full event videos.</p>
-
-          <div class="social-btn-row">
-            <a href="https://www.instagram.com/flambegrill/" target="_blank" class="social-btn instagram-btn" rel="noopener">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-              Instagram
-            </a>
-
-            <a href="https://www.facebook.com/profile.php?id=61554979903834" target="_blank" class="social-btn facebook-btn" rel="noopener">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook">
-              Facebook
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section section-light">
-      <div class="container about-layout">
-        <div class="about-text">
-          <h2>About Flambé Grill</h2>
-          <p>
-            Flambé Grill is built on a love for real fire, charcoal and the excitement that comes from cooking in front of your guests.
-            We’re bringing that experience to South Florida with a full live-fire catering service.
-          </p>
-          <p>
-            We handle the fire, timing and cooking. You enjoy the show, the aromas and plates that go straight from the grill to your guests.
-          </p>
-
-          <h3>What We Do</h3>
-          <ul class="about-list">
-            <li>Live fire catering for private and corporate events</li>
-            <li>Whole lamb or pig on the spit, steaks, seafood and Greek gyro</li>
-            <li>High quality meat and fresh ingredients</li>
-            <li>We bring equipment, grills and spits to you</li>
-            <li>Ideal for birthdays, bachelor parties, anniversaries, beach parties, festivals and more</li>
-          </ul>
-
-          <p><strong>South Florida, we’re ready to bring the fire to you.</strong></p>
-        </div>
-
-        <div class="about-photo" style="background-image: url('about.jpg'); background-size: cover; background-position: center;"></div>
-      </div>
-    </section>
-
-    <!-- Contact / Quote -->
-    <section id="quote" class="section section-dark">
-      <div class="container">
-        <h2>Get Your Custom Quote</h2>
-        <p class="section-intro">
-          Check availability and receive your quote within 24 hours.<br>
-          Weekend dates fill quickly. Secure your event now.
-        </p>
-
-        <p style="margin-top:15px;">
-          Prefer faster response?
-          <a href="https://wa.me/17869350059" target="_blank" rel="noopener" style="color:#25D366;font-weight:bold;">
-            Message us on WhatsApp
-          </a>
-        </p>
-<p style="margin-top:12px;">
-  Not sure what to choose?
-  <a href="Flambe-Grill-Catering-Menu.pdf" target="_blank" rel="noopener" style="font-weight:bold; text-decoration:underline;">
-    Download our menu PDF
-  </a>
-</p>
-
-        <div class="contact-layout">
-          <form class="contact-form" action="https://formspree.io/f/xkgyqnjp" method="POST">
-            <div class="form-row">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required>
-            </div>
-
-            <div class="form-row">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required>
-            </div>
-
-            <div class="form-row">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" placeholder="+1 (786) 935-0059">
-            </div>
-
-            <div class="form-row">
-              <label for="date">Event date</label>
-              <input id="date" name="date" type="date">
-            </div>
-
-            <div class="form-row">
-              <label for="location">Location (city, venue)</label>
-              <input id="location" name="location" type="text" placeholder="City, venue or area">
-            </div>
-
-            <div class="form-row">
-              <label for="type">Type of event</label>
-              <select id="type" name="type">
-                <option value="">Select</option>
-                <option value="bachelor">Bachelor party</option>
-                <option value="golf">Golf event</option>
-                <option value="private">Private party</option>
-                <option value="corporate">Corporate event</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div class="form-row">
-              <label for="guests">Number of guests (approx)</label>
-              <input id="guests" name="guests" type="number" min="1" placeholder="50">
-            </div>
-
-            <div class="form-row">
-              <label for="message">What are you looking for</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tell us about your event, timing and what you would like us to cook."></textarea>
-            </div>
-
-            <input type="hidden" name="_subject" value="New booking request from Flambé Grill website">
-            <input type="hidden" name="_redirect" value="https://flambegrill.com/#quote">
-
-            <button type="submit" class="btn btn-primary full-width">Send Request</button>
-          </form>
-
-          <div class="contact-info">
-            <h3>Contact Details</h3>
-            <p>You can also reach us directly.</p>
-
-            <p>
-              <strong>Email:</strong>
-              <a href="mailto:info@flambegrill.com">info@flambegrill.com</a>
-            </p>
-
-            <p>
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@flambegrill.com&su=Booking%20Request%20-%20Flambe%20Grill"
-                 target="_blank" rel="noopener">
-                Send via Gmail
-              </a>
-            </p>
-
-            <p>
-              <strong>Phone:</strong>
-              <a href="tel:+17869350059">+1 (786) 935-0059</a>
-            </p>
-
-            <h3>Serving All South Florida</h3>
-            <p>
-              Miami • Miami Beach • Fort Lauderdale • Hollywood • Boca Raton • Delray Beach •
-              Pompano Beach • West Palm Beach • Jupiter • Palm Beach
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <a href="tel:+17869350059" class="call-now-btn">Call Now</a>
-
-  <a
-    href="https://wa.me/17869350059?text=Hi%20Flamb%C3%A9%20Grill%2C%20I%27d%20like%20to%20ask%20about%20catering."
-    class="whatsapp-btn"
-    target="_blank"
-    rel="noopener"
-    aria-label="Text us on WhatsApp"
-  >
-    <svg class="whatsapp-icon" viewBox="0 0 32 32">
-      <path fill="white" d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.8 5.6 2.3 8l-1.5 5.5 5.7-1.5c2.3 1.3 5 2 7.7 2 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28c-2.4 0-4.8-.6-6.9-1.8l-.5-.3-3.4.9.9-3.3-.4-.5C4.6 21.1 4 18.6 4 16 4 9.4 9.4 4 16 4s12 5.4 12 12-5.4 12-12 12zm6.7-9.1c-.4-.2-2.2-1.1-2.5-1.2s-.6-.2-.9.2c-.3.4-1 1.2-1.2 1.5-.2.2-.4.3-.7.1-.4-.2-1.7-.6-3.3-2-.1-.1-1.2-1.1-1.1-2.1 0-.9.6-1.3.8-1.5.2-.2.3-.3.5-.5.2-.2.3-.3.5-.6.2-.3.1-.5 0-.7-.1-.2-.9-2.2-1.2-3-.3-.7-.6-.6-.9-.6h-.8c-.3 0-.7.1-.9.4-.3.4-1.1 1.1-1.1 2.7s1.1 3.1 1.2 3.3c.2.2 2.2 3.4 5.3 4.8.7.3 1.2.5 1.6.7.7.3 1.3.2 1.8.1.6-.1 1.9-.8 2.2-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.7-.5z"/>
-    </svg>
-  </a>
-
+  <!-- ================================================================= -->
+  <!-- 11. CENTRALIZED MEDIA SWAP HUB & SCROLL-REACTIVE FLAME ENGINE     -->
+  <!-- ================================================================= -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Smooth scroll for menu links
-      const anchors = document.querySelectorAll('a[href^="#"]');
-      anchors.forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
-          if (!href || href === '#') return;
-          const target = document.querySelector(href);
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+    const FLAMBE_MEDIA = {
+      // Form delivery (Formspree, same form your current site uses)
+      formspreeEndpoint: "https://formspree.io/f/xkgyqnjp",
+
+      // VIDEOS: add your own clips (e.g. "videos/hero.mp4") and they play in place of the photo.
+      // Leave "" to show the photo instead.
+      bgFlameVideo: "",   // optional: a real flame loop for the scroll-reactive background
+      heroVideo: "",
+      cinemaVideo: "cinema-resort-roast.mp4",
+      reel1Video: "reel-gyro-spit.mp4",
+      reel2Video: "",
+      reel3Video: "",
+      reel4Video: "reel-tomahawk-carve.mp4",
+
+      // PHOTOS: your own files, in the same folder as index.html.
+      // To swap a photo: replace the file, or change the file name here.
+      heroPoster:   "hero-gyro-spit.jpg",
+      cinemaPoster: "cinema-resort-roast.jpg",
+      reel1Poster:  "reel-gyro-spit.jpg",
+      reel2Poster:  "whole-pig.jpg",
+      reel3Poster:  "gallery2.jpg",
+      reel4Poster:  "reel-tomahawk-carve.jpg",
+
+      bentoCharcoalImg:       "gallery4.jpg",
+      bentoHorizontalSpitImg: "gallery3.jpg",
+      bentoWholeRoastImg:     "whole-pig-wide.jpg",
+      bentoGreekFeastImg:     "gallery1.jpg"
+    };
+
+    function loadMediaAssets() {
+      const attachVideo = (id, src, poster) => {
+        const v = document.getElementById(id);
+        if (!v) return;
+        if (poster) v.poster = poster;
+        if (!src) { v.removeAttribute('autoplay'); return; }   // no video yet: show the photo
+        v.src = src;
+        v.load();
+        v.play().catch(() => {});
+      };
+      attachVideo('bg-flame-video', FLAMBE_MEDIA.bgFlameVideo, null);
+      attachVideo('hero-video', FLAMBE_MEDIA.heroVideo, FLAMBE_MEDIA.heroPoster);
+      attachVideo('cinema-video', FLAMBE_MEDIA.cinemaVideo, FLAMBE_MEDIA.cinemaPoster);
+      attachVideo('reel-1', FLAMBE_MEDIA.reel1Video, FLAMBE_MEDIA.reel1Poster);
+      attachVideo('reel-2', FLAMBE_MEDIA.reel2Video, FLAMBE_MEDIA.reel2Poster);
+      attachVideo('reel-3', FLAMBE_MEDIA.reel3Video, FLAMBE_MEDIA.reel3Poster);
+      attachVideo('reel-4', FLAMBE_MEDIA.reel4Video, FLAMBE_MEDIA.reel4Poster);
+
+      if (!FLAMBE_MEDIA.heroVideo) {
+        const ab = document.querySelector('[onclick^="toggleVideoAudio"]');
+        if (ab) ab.style.display = 'none';
+      }
+      document.getElementById('bento-img-1').src = FLAMBE_MEDIA.bentoCharcoalImg;
+      document.getElementById('bento-img-2').src = FLAMBE_MEDIA.bentoHorizontalSpitImg;
+      document.getElementById('bento-img-3').src = FLAMBE_MEDIA.bentoWholeRoastImg;
+      document.getElementById('bento-img-4').src = FLAMBE_MEDIA.bentoGreekFeastImg;
+    }
+
+    const MENU_DATA = {
+      spit: [
+        { title: "Horizontal Rotisserie Gyro (Pork, Chicken or Lamb)", tag: "Signature Horizontal Spit", desc: "Hand-stacked daily on horizontal stainless spits and slow-turned over 100% natural charcoal. Served with warm pita, house tzatziki, tomatoes, and red onion." },
+        { title: "Whole Heritage Pig Spit Roast", tag: "5-Hour Charcoal Roast", desc: "Whole suckling or heritage pig seasoned with sea salt, oregano, and citrus, rotated over glowing lump charcoal until the skin is glass-crisp." },
+        { title: "Whole Spring Lamb on the Spit", tag: "Greek Easter Tradition", desc: "Whole spring lamb basted with lemon, olive oil, garlic, and mountain oregano over natural charcoal embers, carved live on-site." },
+        { title: "Kontosouvli (Marinated Spit-Roasted Pork)", tag: "Artisanal Rotisserie", desc: "Large cuts of heritage pork shoulder marinated for 24 hours in Mediterranean herbs and slow-roasted on horizontal skewers." }
+      ],
+      grill: [
+        { title: "Prime Tomahawk & Ribeye Steak Theatre", tag: "High-Heat Charcoal Sear", desc: "Thick-cut prime bone-in tomahawks seared directly over radiant natural charcoal beds and finished with herb-infused olive oil and sea salt." },
+        { title: "Traditional Greek Souvlaki Skewers", tag: "Hand-Skewered Daily", desc: "Tender pork, chicken, or lamb skewers grilled to order over live charcoal embers with lemon-oregano basting." },
+        { title: "Charcoal-Grilled Loukaniko & Lamb Chops", tag: "Mezze From The Fire", desc: "Orange-zest Greek country sausage and lollipop lamb chops seared crisp over natural lump charcoal." },
+        { title: "Mediterranean Grilled Octopus & Prawns", tag: "Coastal Live-Fire", desc: "Charcoal-blistered octopus and colossal prawns dressed in extra-virgin Greek olive oil, capers, and fresh lemon." }
+      ],
+      traditional: [
+        { title: "Traditional Moussaka & Pastitsio", tag: "Baked House Classics", desc: "Layered eggplant, spiced beef ragù, and velvety béchamel alongside classic baked Greek pasta pastitsio." },
+        { title: "Handmade Spanakopita & Tiropita", tag: "Crisp Phyllo Pastries", desc: "Flaky, golden phyllo layered with wild greens, spinach, fresh dill, and imported Greek barrel-aged feta." },
+        { title: "Lemon-Oregano Roasted Potatoes & Gemista", tag: "Authentic Accompaniments", desc: "Slow-roasted Greek lemon potatoes alongside tomatoes and bell peppers stuffed with herb-scented rice." },
+        { title: "House-Made Tzatziki & Horiatiki Village Salad", tag: "Fresh Preparation", desc: "Thick strained Greek yogurt with cucumber, garlic, and dill, paired with vine-ripened tomatoes, Kalamata olives, and feta blocks." }
+      ]
+    };
+
+    function switchMenuTab(category, btnEl) {
+      document.querySelectorAll('.menu-tab').forEach(b => {
+        b.classList.remove('bg-fire-gradient', 'text-white');
+        b.classList.add('text-ash');
+      });
+      if (btnEl) {
+        btnEl.classList.add('bg-fire-gradient', 'text-white');
+        btnEl.classList.remove('text-ash');
+      }
+      const container = document.getElementById('menu-grid');
+      container.innerHTML = MENU_DATA[category].map(item => `
+        <div class="p-7 rounded-2xl bg-surface/80 backdrop-blur-xl border border-ember/30 hover:border-flameGold transition-all shadow-xl">
+          <span class="text-[10px] uppercase tracking-[0.2em] text-flameGold font-semibold block mb-2">${item.tag}</span>
+          <h4 class="font-serif text-xl text-white mb-2">${item.title}</h4>
+          <p class="text-ash text-sm font-normal leading-relaxed">${item.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    // Global Scroll Flame Boost State
+    let scrollFlameBoost = 0;
+
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      loadMediaAssets();
+      switchMenuTab('spit', document.querySelector('.menu-tab'));
+
+      const bgFlameVideo = document.getElementById('bg-flame-video');
+      const tempReadout = document.getElementById('flame-temp-readout');
+      const hudDot = document.getElementById('flame-hud-dot');
+
+      // Lenis Smooth Scroll with Real-Time Flame Fanning
+      const lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+      lenis.on('scroll', ({ scroll, limit, velocity }) => {
+        const absVel = Math.min(Math.abs(velocity), 25);
+        scrollFlameBoost = absVel / 8; // 0 to ~3.1
+
+        // 1. Parallax the background flame video as user scrolls
+        const progress = limit > 0 ? scroll / limit : 0;
+        const yOffset = -progress * 15; // Moves -15% vertically across page scroll
+        const scaleBoost = 1.08 + (scrollFlameBoost * 0.04);
+        const dynamicOpacity = Math.min(0.42 + (scrollFlameBoost * 0.16), 0.82);
+
+        if (bgFlameVideo) {
+          bgFlameVideo.style.transform = `translateY(${yOffset}%) scale(${scaleBoost})`;
+          bgFlameVideo.style.opacity = dynamicOpacity;
+          // Speed up real flame video playback as you scroll faster
+          bgFlameVideo.playbackRate = Math.min(1 + (absVel * 0.08), 2.8);
+        }
+
+        // 2. Update Charcoal Bed Temperature HUD
+        if (tempReadout) {
+          const temp = Math.round(650 + (absVel * 14));
+          tempReadout.textContent = `${temp}°F`;
+          if (hudDot) hudDot.style.transform = `scale(${1 + scrollFlameBoost * 0.5})`;
+        }
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        // Gradually decay scroll boost when scrolling stops
+        scrollFlameBoost *= 0.94;
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.gsap-hero', { y: 35, opacity: 0, duration: 1, stagger: 0.14, ease: 'power3.out' });
+      gsap.from('.gsap-hero-media', { scale: 0.92, opacity: 0, duration: 1.2, delay: 0.25, ease: 'power3.out' });
+
+      gsap.fromTo('#expanding-cinema',
+        { scale: 0.86, borderRadius: '32px' },
+        {
+          scale: 1,
+          borderRadius: '16px',
+          ease: 'none',
+          scrollTrigger: { trigger: '#expanding-cinema', start: 'top 85%', end: 'top 20%', scrub: 0.6 }
+        }
+      );
+
+      gsap.utils.toArray('.gsap-fade-up').forEach((el) => {
+        gsap.from(el, {
+          y: 40,
+          opacity: 0,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%' }
         });
       });
 
-      // SIMPLE GALLERY SLIDER
-      const track = document.querySelector('.slider-track');
-      const slides = document.querySelectorAll('.slide');
-      const prevBtn = document.querySelector('.slider-btn.prev');
-      const nextBtn = document.querySelector('.slider-btn.next');
-      let currentIndex = 0;
+      initScrollReactiveFlameCanvas();
+    });
 
-      function updateSlider() {
-        const offset = -currentIndex * 100;
-        track.style.transform = 'translateX(' + offset + '%)';
-      }
-
-      function goNext() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlider();
-      }
-
-      function goPrev() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateSlider();
-      }
-
-      if (track && slides.length > 0 && prevBtn && nextBtn) {
-        updateSlider();
-        prevBtn.addEventListener('click', goPrev);
-        nextBtn.addEventListener('click', goNext);
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-obsidian/90', 'backdrop-blur-xl', 'border-b', 'border-hairline', 'py-4', 'shadow-2xl');
+        navbar.classList.remove('py-6');
+      } else {
+        navbar.classList.remove('bg-obsidian/90', 'backdrop-blur-xl', 'border-b', 'border-hairline', 'py-4', 'shadow-2xl');
+        navbar.classList.add('py-6');
       }
     });
-  </script>
 
+    function scrollReels(offset) {
+      document.getElementById('reels-track').scrollBy({ left: offset, behavior: 'smooth' });
+    }
+    function toggleReelPlay(id) {
+      const v = document.getElementById(id);
+      if (v.paused) { v.play().catch(() => {}); } else { v.pause(); }
+    }
+    function toggleVideoAudio(id, btn) {
+      const v = document.getElementById(id);
+      v.muted = !v.muted;
+      btn.innerHTML = v.muted ? '<i data-lucide="volume-x" class="w-4 h-4"></i>' : '<i data-lucide="volume-2" class="w-4 h-4 text-flameGold"></i>';
+      lucide.createIcons();
+    }
+    function updateEstimator(val) {
+      document.getElementById('guest-display').textContent = `${val} Guests`;
+      const rec = document.getElementById('rig-recommendation');
+      if (val < 45) {
+        rec.textContent = "Single Horizontal Rotisserie Spit + Custom Stainless Charcoal Bed + Private Pitmaster On-Site.";
+      } else if (val <= 110) {
+        rec.textContent = "Dual Horizontal Rotisserie Spits + Custom Stainless Charcoal Grill Bed + 2 Live-Fire Chefs On-Site.";
+      } else {
+        rec.textContent = "Full Multi-Spit Estate Rig (Whole Animal + Horizontal Gyro Spits) + Dedicated Carving & Mezze Brigade.";
+      }
+    }
+
+    const modal = document.getElementById('inquiry-modal');
+    function openModal() { modal.classList.remove('hidden'); modal.classList.add('flex'); }
+    function openModalWithGuests() {
+      document.getElementById('modal-guests').value = document.getElementById('guest-slider').value;
+      openModal();
+    }
+    function closeModal() { modal.classList.add('hidden'); modal.classList.remove('flex'); }
+
+    // Custom menu: picking it makes the message box required and changes its wording
+    function syncCustomMenu() {
+      const custom = document.getElementById('f-experience').value === 'CUSTOM MENU REQUEST';
+      const notes = document.getElementById('f-notes');
+      document.getElementById('notes-label').textContent = custom ? 'Describe Your Custom Menu *' : 'Anything Else? (optional)';
+      notes.required = custom;
+      notes.placeholder = custom
+        ? 'Dishes you love, dietary needs, which meats, how many guests to feed, anything you want us to cook…'
+        : "Tell us about your event, timing and anything you'd like us to know.";
+      notes.classList.toggle('border-ember', custom);
+    }
+    function openModalCustom() {
+      openModal();
+      document.getElementById('f-experience').value = 'CUSTOM MENU REQUEST';
+      syncCustomMenu();
+      setTimeout(() => document.getElementById('f-notes').focus(), 80);
+    }
+    function toggleMobileMenu() {
+      const m = document.getElementById('mobile-menu');
+      m.classList.toggle('hidden');
+      m.classList.toggle('flex');
+    }
+
+    document.getElementById('concierge-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const errEl = document.getElementById('form-error');
+      errEl.classList.add('hidden');
+      if (!FLAMBE_MEDIA.formspreeEndpoint || FLAMBE_MEDIA.formspreeEndpoint.includes('YOUR_FORMSPREE_ID')) {
+        errEl.textContent = 'The inquiry form is not connected yet. Please contact us directly.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+      btn.textContent = "Transmitting Inquiry...";
+      btn.disabled = true;
+      try {
+        const res = await fetch(FLAMBE_MEDIA.formspreeEndpoint, {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!res.ok) throw new Error('send failed');
+        this.classList.add('hidden');
+        document.getElementById('form-success').classList.remove('hidden');
+      } catch (err) {
+        errEl.textContent = 'Something went wrong sending your inquiry. Please try again in a moment.';
+        errEl.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Submit Private Inquiry';
+      }
+    });
+
+    // =================================================================
+    // SCROLL-REACTIVE REAL FLAME PLUMES + CHARCOAL SPARKS CANVAS
+    // =================================================================
+    function initScrollReactiveFlameCanvas() {
+      const canvas = document.getElementById('ember-canvas');
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
+      window.addEventListener('resize', () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      });
+
+      // 1. Soft Volumetric Flame Plumes Rising from the Bottom Charcoal Bed
+      const plumes = Array.from({ length: 34 }, () => ({
+        x: Math.random() * w,
+        y: h + Math.random() * 120,
+        radius: Math.random() * 90 + 55,
+        vy: -(Math.random() * 1.8 + 0.9),
+        sway: Math.random() * Math.PI * 2,
+        swaySpeed: Math.random() * 0.03 + 0.01,
+        life: Math.random()
+      }));
+
+      // 2. Crisp Glowing Charcoal Sparks
+      const sparksColors = ['#FF5E1A', '#FFB800', '#FF2A00', '#FFF2B2'];
+      const sparks = Array.from({ length: 55 }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 2.6 + 0.8,
+        vy: -(Math.random() * 1.1 + 0.35),
+        vx: (Math.random() - 0.5) * 0.6,
+        alpha: Math.random() * 0.8 + 0.2,
+        color: sparksColors[Math.floor(Math.random() * sparksColors.length)]
+      }));
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        const speedMultiplier = 1 + (scrollFlameBoost * 2.4);
+
+        // Base glowing charcoal bed horizon at bottom of screen
+        const baseGrad = ctx.createLinearGradient(0, h, 0, h - (180 + scrollFlameBoost * 90));
+        baseGrad.addColorStop(0, `rgba(255, 65, 0, ${Math.min(0.42 + scrollFlameBoost * 0.18, 0.75)})`);
+        baseGrad.addColorStop(0.5, `rgba(255, 140, 0, ${0.15 + scrollFlameBoost * 0.08})`);
+        baseGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = baseGrad;
+        ctx.fillRect(0, h - 300, w, 300);
+
+        // Draw rising volumetric flame tongues
+        plumes.forEach(f => {
+          f.y += f.vy * speedMultiplier;
+          f.sway += f.swaySpeed * speedMultiplier;
+          f.x += Math.sin(f.sway) * 1.4;
+          f.life -= 0.008 * speedMultiplier;
+
+          if (f.life <= 0 || f.y < h * 0.35) {
+            f.x = Math.random() * w;
+            f.y = h + 40;
+            f.life = 1;
+          }
+
+          const currentRadius = f.radius * (0.4 + f.life * 0.7) * (1 + scrollFlameBoost * 0.25);
+          const grad = ctx.createRadialGradient(f.x, f.y, 1, f.x, f.y, currentRadius);
+          grad.addColorStop(0, `rgba(255, 210, 60, ${f.life * 0.26})`);
+          grad.addColorStop(0.45, `rgba(255, 85, 15, ${f.life * 0.18})`);
+          grad.addColorStop(1, 'rgba(255, 30, 0, 0)');
+
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.arc(f.x, f.y, currentRadius, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        // Draw crisp rising charcoal sparks
+        sparks.forEach(p => {
+          p.y += p.vy * speedMultiplier;
+          p.x += p.vx + Math.sin(p.y * 0.02) * 0.3;
+          if (p.y < -10) {
+            p.y = h + 10;
+            p.x = Math.random() * w;
+          }
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = Math.min(p.alpha + scrollFlameBoost * 0.2, 1);
+          ctx.shadowBlur = 14;
+          ctx.shadowColor = p.color;
+          ctx.fill();
+          ctx.restore();
+        });
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+  
+    // Pause off-screen videos so phones stay smooth (background flame loop keeps running)
+    const vio = new IntersectionObserver((es) => es.forEach(e => {
+      if (e.isIntersecting) e.target.play().catch(() => {}); else e.target.pause();
+    }), { threshold: 0.15 });
+    document.querySelectorAll('video').forEach(v => { if (v.id !== 'bg-flame-video') vio.observe(v); });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
